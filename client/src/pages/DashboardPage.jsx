@@ -173,7 +173,7 @@ export function DashboardPage() {
         <div className="dashboard-hero__identity">
           <Flag team={data.team} size="lg" />
           <div>
-            <span>{data.team.fifaCode} · {t('teams.group')} {data.team.group}</span>
+            <span>{data.team.fifaCode} / {t('teams.group')} {data.team.group}</span>
             <h2>{teamName(data.team, language)}</h2>
             <p>{t('dashboard.homeSummary')}</p>
           </div>
@@ -181,7 +181,7 @@ export function DashboardPage() {
         <div className="dashboard-quick-actions">
           <QuickAction icon={ClipboardList} label={t('dashboard.actions.editTactics')} to="/tactics" primary />
           <QuickAction icon={Users} label={t('dashboard.actions.viewSquad')} to="/squad" />
-          <QuickAction icon={BarChart3} label={t('dashboard.actions.opponentAnalysis')} to={data.fixtures.upcomingMatch ? `/matches/${data.fixtures.upcomingMatch._id}` : null} disabled={!data.fixtures.upcomingMatch} />
+          <QuickAction icon={BarChart3} label={t('dashboard.actions.opponentAnalysis')} to="/opponent-analysis" disabled={!data.fixtures.upcomingMatch} />
           <QuickAction icon={Play} label={t('dashboard.actions.simulateMatch')} onClick={simulateNextMatch} disabled={!data.fixtures.upcomingMatch || isSimulating} />
           <QuickAction icon={Mic2} label={t('dashboard.actions.pressConference')} onClick={openPressConference} />
         </div>

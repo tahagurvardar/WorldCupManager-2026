@@ -268,5 +268,81 @@
     "RW": "SĞK",
     "LW": "SLK",
     "ST": "SNT"
+  },
+  "opponentAnalysis": {
+    "title": "Rakip analizi",
+    "subtitle": "Se?ili tak?m?n s?radaki planl? ma?? i?in ma? ?n? g?zlem raporu.",
+    "loading": "Rakip analizi haz?rlan?yor",
+    "errorTitle": "Rakip analizi y?klenemedi",
+    "errorMessage": "Rakip analizi y?klenemedi.",
+    "noUpcomingMatch": "Analiz i?in planl? ma? bulunmuyor.",
+    "threatLevel": "Taktik tehdit",
+    "ours": "Bizim tak?m",
+    "opponent": "Rakip",
+    "points": "puan",
+    "noRecentForm": "Yak?n d?nemde tamamlanan ma? yok",
+    "opponentStrengths": "Rakibin g??l? y?nleri",
+    "opponentWeaknesses": "Rakibin zay?f noktalar?",
+    "keyThreats": "Kilit tehditler",
+    "noThreats": "Rakip tehdit verisi bulunmuyor.",
+    "recommendedPlan": "?nerilen taktik plan",
+    "recentForm": "Son form",
+    "keyPlayerToWatch": "Dikkat edilecek kilit oyuncu",
+    "categories": {
+      "overall": "Genel g??",
+      "attack": "H?cum",
+      "midfield": "Orta saha",
+      "defense": "Savunma",
+      "goalkeeper": "Kaleci"
+    },
+    "edges": {
+      "ours": "Avantaj bizde",
+      "opponent": "Rakip ?st?n",
+      "level": "Dengeli"
+    },
+    "threatLevels": {
+      "elite": "Elit",
+      "high": "Y?ksek",
+      "medium": "Orta",
+      "low": "D???k"
+    },
+    "strengthReasons": {
+      "eliteUnit": "Elit ?nite kalitesi",
+      "clearEdge": "E?le?mede belirgin ?st?nl?k",
+      "stableUnit": "G?venilir turnuva ?nitesi"
+    },
+    "weaknessReasons": {
+      "relativeWeakness": "Rakibin en d???k derinlik skoru",
+      "noNaturalCover": "Do?al alternatif g?r?nm?yor",
+      "thinDepth": "?lk 11 arkas?nda derinlik zay?f",
+      "lowRating": "Turnuva seviyesi beklentisinin alt?nda"
+    },
+    "plan": {
+      "pressing": "Pres",
+      "tempo": "Tempo",
+      "defensiveLine": "Savunma ?izgisi",
+      "counterAttack": "Kontra atak"
+    },
+    "planLevels": {
+      "high": "Y?ksek",
+      "balanced": "Dengeli",
+      "measured": "?l??l?",
+      "fast": "H?zl?",
+      "controlled": "Kontroll?",
+      "standard": "Standart",
+      "deep": "Derin",
+      "enabled": "Aktif",
+      "selective": "Se?ici"
+    },
+    "planReasons": {
+      "targetBuildUp": "Zay?f oyun kurulumunu hedefle ve acele uzakla?t?rmaya zorla.",
+      "manageEnergy": "Bloku yormadan kompakt pres uygula.",
+      "attackSpace": "Savunma arkas? bo?luklara daha direkt h?cum et.",
+      "controlRhythm": "Orta saha kontrol?yle ma? h?z?n? sen belirle.",
+      "protectDepth": "Ko?ulara kar?? savunma arkas? alan? koru.",
+      "compressSpace": "Sahay? daralt ve rakibi ritimden uzak tut.",
+      "exploitTransitions": "Rakibin h?cum yerle?imi bo?luk verdi?inde h?zl? ??k.",
+      "selectiveBreaks": "?lk pas temiz oldu?unda kontra ata?a ??k."
+    }
   }
 }

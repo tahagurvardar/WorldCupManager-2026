@@ -268,5 +268,81 @@
     "RW": "RW",
     "LW": "LW",
     "ST": "ST"
+  },
+  "opponentAnalysis": {
+    "title": "Opponent analysis",
+    "subtitle": "Pre-match scouting for the selected team?s next scheduled fixture.",
+    "loading": "Building opponent analysis",
+    "errorTitle": "Opponent analysis could not load",
+    "errorMessage": "Could not load opponent analysis.",
+    "noUpcomingMatch": "No scheduled match is available for analysis.",
+    "threatLevel": "Tactical threat",
+    "ours": "Our team",
+    "opponent": "Opponent",
+    "points": "pts",
+    "noRecentForm": "No recent completed matches",
+    "opponentStrengths": "Opponent strengths",
+    "opponentWeaknesses": "Opponent weaknesses",
+    "keyThreats": "Key threats",
+    "noThreats": "No opponent threat data available.",
+    "recommendedPlan": "Recommended tactical plan",
+    "recentForm": "Recent form",
+    "keyPlayerToWatch": "Key player to watch",
+    "categories": {
+      "overall": "Overall",
+      "attack": "Attack",
+      "midfield": "Midfield",
+      "defense": "Defense",
+      "goalkeeper": "Goalkeeper"
+    },
+    "edges": {
+      "ours": "Advantage us",
+      "opponent": "Opponent edge",
+      "level": "Level"
+    },
+    "threatLevels": {
+      "elite": "Elite",
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low"
+    },
+    "strengthReasons": {
+      "eliteUnit": "Elite unit quality",
+      "clearEdge": "Clear matchup edge",
+      "stableUnit": "Reliable tournament unit"
+    },
+    "weaknessReasons": {
+      "relativeWeakness": "Lowest opponent depth score",
+      "noNaturalCover": "No natural cover detected",
+      "thinDepth": "Thin depth behind starters",
+      "lowRating": "Below expected tournament level"
+    },
+    "plan": {
+      "pressing": "Pressing",
+      "tempo": "Tempo",
+      "defensiveLine": "Defensive line",
+      "counterAttack": "Counter attack"
+    },
+    "planLevels": {
+      "high": "High",
+      "balanced": "Balanced",
+      "measured": "Measured",
+      "fast": "Fast",
+      "controlled": "Controlled",
+      "standard": "Standard",
+      "deep": "Deep",
+      "enabled": "Enabled",
+      "selective": "Selective"
+    },
+    "planReasons": {
+      "targetBuildUp": "Target weak buildup and force rushed clearances.",
+      "manageEnergy": "Keep pressure compact without exhausting the block.",
+      "attackSpace": "Use direct attacks into the space behind their back line.",
+      "controlRhythm": "Use midfield control to choose the game speed.",
+      "protectDepth": "Protect space behind the defense against their runners.",
+      "compressSpace": "Compress the pitch and keep the opponent away from rhythm.",
+      "exploitTransitions": "Break quickly when their attacking shape opens space.",
+      "selectiveBreaks": "Counter only when the first pass is clean."
+    }
   }
 }

@@ -10,6 +10,7 @@ import { evaluateSquad } from '../services/squadRules.js';
 import { calculateGroupStandings } from '../services/standingsService.js';
 import { simulateMatchById } from '../services/matchSimulationService.js';
 import { buildRecommendedXi } from '../services/recommendedXiService.js';
+import { buildOpponentAnalysis } from '../services/opponentAnalysisService.js';
 
 export const selectTeamSchema = z.object({
   body: z.object({
@@ -90,6 +91,58 @@ export const simulateNextMatch = asyncHandler(async (req, res) => {
 
   const simulatedMatch = await simulateMatchById(match._id);
   res.json({ success: true, match: simulatedMatch });
+});
+
+export const getOpponentAnalysis = asyncHandler(async (req, res) => {
+  if (!req.user.selectedTeam) {
+    throw new HttpError(400, 'Manager has not selected a national team');
+  }
+
+  const teamId = req.user.selectedTeam._id || req.user.selectedTeam;
+  const nextMatch = await Match.findOne({
+    status: 'scheduled',
+    $or: [{ 'home.team': teamId }, { 'away.team': teamId }],
+  }).sort({ kickoffAt: 1 });
+
+  if (!nextMatch) {
+    return res.json({ success: true, analysis: null });
+  }
+
+  const homeId = String(nextMatch.home.team);
+  const selectedTeamId = String(teamId);
+  const opponentTeamId = homeId === selectedTeamId ? nextMatch.away.team : nextMatch.home.team;
+
+  const [ourTeam, opponentTeam, ourPlayers, opponentPlayers, recentMatches] = await Promise.all([
+    NationalTeam.findById(teamId).populate('coach'),
+    NationalTeam.findById(opponentTeamId).populate('coach'),
+    Player.find({ country: teamId }).populate('country', 'nameTR nameEN fifaCode flagEmoji flagCode group'),
+    Player.find({ country: opponentTeamId }).populate('country', 'nameTR nameEN fifaCode flagEmoji flagCode group'),
+    Match.find({
+      status: 'completed',
+      $or: [
+        { 'home.team': { $in: [teamId, opponentTeamId] } },
+        { 'away.team': { $in: [teamId, opponentTeamId] } },
+      ],
+    }).sort({ kickoffAt: -1 }).limit(12),
+  ]);
+
+  if (!ourTeam || !opponentTeam) {
+    throw new HttpError(404, 'Team data for opponent analysis was not found');
+  }
+
+  const analysis = buildOpponentAnalysis({
+    match: nextMatch,
+    ourTeam,
+    opponentTeam,
+    ourPlayers,
+    opponentPlayers,
+    recentMatches,
+  });
+
+  return res.json({
+    success: true,
+    analysis,
+  });
 });
 
 export const getRecommendedXi = asyncHandler(async (req, res) => {

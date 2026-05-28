@@ -1401,6 +1401,232 @@ select:focus {
   color: var(--danger);
 }
 
+.opponent-analysis {
+  display: grid;
+  gap: 18px;
+}
+
+.opponent-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, auto);
+  gap: 18px;
+  align-items: center;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent-2) 26%, transparent), transparent 44%),
+    linear-gradient(180deg, color-mix(in srgb, var(--surface) 95%, white 5%), var(--surface));
+}
+
+.opponent-hero__teams {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+}
+
+.opponent-hero__teams > div {
+  display: grid;
+  place-items: center;
+  gap: 10px;
+  min-width: 0;
+  text-align: center;
+}
+
+.opponent-hero__teams strong,
+.opponent-hero__meta span,
+.opponent-hero__meta strong {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.opponent-hero__teams > span {
+  min-width: 58px;
+  padding: 7px 10px;
+  border-radius: var(--radius);
+  color: var(--on-accent);
+  background: var(--accent);
+  font-weight: 800;
+  text-align: center;
+}
+
+.opponent-hero__meta {
+  display: grid;
+  gap: 8px;
+  justify-items: end;
+  color: var(--muted);
+}
+
+.opponent-hero__meta strong {
+  color: var(--accent);
+}
+
+.analysis-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.analysis-grid--comparison {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.analysis-grid--plan {
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
+}
+
+.analysis-card,
+.analysis-list-item,
+.analysis-player,
+.plan-row,
+.key-watch,
+.form-grid article {
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.analysis-card--ours {
+  border-color: color-mix(in srgb, var(--accent) 62%, var(--border));
+}
+
+.analysis-card--opponent {
+  border-color: color-mix(in srgb, var(--danger) 56%, var(--border));
+}
+
+.analysis-card__head,
+.analysis-list-item,
+.analysis-player,
+.plan-row,
+.key-watch {
+  display: flex;
+  gap: 12px;
+}
+
+.analysis-card__head {
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.analysis-card__head span,
+.analysis-list-item span,
+.analysis-player span,
+.plan-row span,
+.plan-row small,
+.key-watch span,
+.key-watch small,
+.form-grid span {
+  color: var(--muted);
+}
+
+.analysis-card__head strong,
+.analysis-list-item b,
+.analysis-player b {
+  color: var(--accent);
+}
+
+.comparison-bars {
+  display: grid;
+  gap: 12px;
+}
+
+.comparison-bars > div {
+  display: grid;
+  gap: 6px;
+}
+
+.comparison-bars span,
+.comparison-bars b {
+  display: flex;
+  justify-content: space-between;
+  min-width: 0;
+}
+
+.readiness-meter--danger span {
+  background: linear-gradient(90deg, var(--amber), var(--danger));
+}
+
+.analysis-panel {
+  min-width: 0;
+}
+
+.analysis-list,
+.plan-grid,
+.form-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.analysis-list-item,
+.analysis-player,
+.key-watch {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.analysis-list-item > div,
+.analysis-player > div,
+.plan-row > div,
+.key-watch > div {
+  min-width: 0;
+}
+
+.analysis-list-item strong,
+.analysis-list-item span,
+.analysis-player strong,
+.analysis-player span,
+.plan-row strong,
+.plan-row span,
+.plan-row small,
+.key-watch strong,
+.key-watch small,
+.form-grid strong,
+.form-grid span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.plan-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.plan-row {
+  align-items: flex-start;
+}
+
+.plan-row svg,
+.key-watch svg {
+  flex: 0 0 auto;
+  color: var(--accent);
+}
+
+.plan-row strong,
+.key-watch strong,
+.form-grid strong {
+  margin-top: 3px;
+}
+
+.plan-row small,
+.key-watch small {
+  margin-top: 5px;
+}
+
+.key-watch {
+  justify-content: flex-start;
+  margin-top: 12px;
+  border-color: color-mix(in srgb, var(--amber) 62%, var(--border));
+}
+
+.key-watch svg {
+  color: var(--amber);
+}
+
 .quality-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -1669,6 +1895,17 @@ select:focus {
   .recommendation-grid {
     grid-template-columns: 1fr;
   }
+
+  .opponent-hero,
+  .analysis-grid,
+  .analysis-grid--comparison,
+  .analysis-grid--plan {
+    grid-template-columns: 1fr;
+  }
+
+  .opponent-hero__meta {
+    justify-items: start;
+  }
 }
 
 @media (max-width: 760px) {
@@ -1750,6 +1987,27 @@ select:focus {
   .recommendation-item > div:first-child {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .opponent-hero__teams {
+    grid-template-columns: 1fr;
+  }
+
+  .opponent-hero__teams > span {
+    justify-self: center;
+    width: min(120px, 100%);
+  }
+
+  .analysis-card__head,
+  .analysis-list-item,
+  .analysis-player,
+  .key-watch {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .plan-grid {
+    grid-template-columns: 1fr;
   }
 
   .player-profile__hero {
