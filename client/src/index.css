@@ -914,6 +914,125 @@ select:focus {
   accent-color: var(--accent);
 }
 
+.tactics-tools {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tactics-tools select {
+  min-width: 126px;
+}
+
+.recommendation-panel {
+  margin-top: 18px;
+}
+
+.recommendation-panel .panel__head {
+  align-items: flex-start;
+}
+
+.recommendation-panel .panel__head p {
+  max-width: 760px;
+  margin-top: 6px;
+  color: var(--muted);
+}
+
+.recommendation-panel .loading-state {
+  min-height: 140px;
+}
+
+.recommendation-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.45fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 14px;
+}
+
+.recommendation-readiness,
+.recommendation-list {
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.recommendation-readiness {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.recommendation-readiness > span,
+.recommendation-readiness small,
+.recommendation-item span {
+  color: var(--muted);
+}
+
+.recommendation-readiness strong {
+  color: var(--accent);
+  font-size: 52px;
+  line-height: 1;
+}
+
+.recommendation-list h3 {
+  margin-bottom: 12px;
+}
+
+.recommendation-items {
+  display: grid;
+  gap: 10px;
+  max-height: 430px;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.recommendation-item {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid color-mix(in srgb, var(--border) 82%, transparent);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--surface) 62%, transparent);
+}
+
+.recommendation-item > div:first-child {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+}
+
+.recommendation-item strong,
+.recommendation-item span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.reason-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.reason-cloud span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 0 8px;
+  border: 1px solid color-mix(in srgb, var(--accent) 42%, var(--border));
+  border-radius: var(--radius);
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  font-size: 11px;
+  font-weight: 800;
+}
+
 .match-hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 220px minmax(0, 1fr);
@@ -1546,6 +1665,10 @@ select:focus {
   .tactics-layout {
     grid-template-columns: 1fr;
   }
+
+  .recommendation-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 760px) {
@@ -1614,6 +1737,19 @@ select:focus {
 
   .dashboard-action {
     width: 100%;
+  }
+
+  .tactics-tools,
+  .tactics-tools select,
+  .tactics-tools .ghost-button,
+  .recommendation-panel .primary-button {
+    width: 100%;
+  }
+
+  .recommendation-panel .panel__head,
+  .recommendation-item > div:first-child {
+    align-items: stretch;
+    flex-direction: column;
   }
 
   .player-profile__hero {

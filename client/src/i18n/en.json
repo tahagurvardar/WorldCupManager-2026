@@ -143,7 +143,42 @@
     "compactness": "Compactness",
     "counterAttack": "Counter attack",
     "dropHint": "Drag a player into a pitch slot",
-    "mismatch": "Position mismatch"
+    "mismatch": "Position mismatch",
+    "recommendedXi": "Recommended XI",
+    "generatingRecommendedXi": "Building Recommended XI",
+    "applyRecommendedXi": "Apply Recommended XI",
+    "recommendedXiExplanation": "Recommended XI analysis",
+    "recommendedXiSubtitle": "Automatic selection based on formation, position fit, form, fitness and national-team status.",
+    "recommendationError": "Could not build a Recommended XI.",
+    "recommendationApplied": "Recommended XI applied to the pitch.",
+    "noRecommendation": "Press Recommended XI to generate a lineup.",
+    "readinessScore": "Tactical readiness score",
+    "recommendationPool": "{{eligible}}/{{total}} eligible players evaluated.",
+    "selectedPlayers": "Why they were selected",
+    "leftOutPlayers": "Important players left out",
+    "noLeftOutPlayers": "No important players were left out.",
+    "score": "score",
+    "recommendationReasons": {
+      "exactFit": "Natural position",
+      "secondaryFit": "Secondary-position fit",
+      "roleFit": "Role-family fit",
+      "positionRisk": "Position risk",
+      "finalSquad": "Final squad priority",
+      "provisionalSquad": "Provisional depth",
+      "candidatePool": "Candidate pool",
+      "overallRating": "Overall quality",
+      "formScore": "Tournament form",
+      "fitnessScore": "Fitness impact"
+    },
+    "leftOutReasons": {
+      "injured": "Left out because injured",
+      "minorInjury": "Held back due to injury risk",
+      "notFinalSquad": "Lower final-squad priority",
+      "lowFitness": "Fitness is too low",
+      "lowerScore": "Higher-scoring players cover the role",
+      "selected": "Selected in the XI"
+    },
+    "notEnoughPlayers": "At least 11 eligible players are required for a recommendation."
   },
   "tournament": {
     "title": "Tournament center",

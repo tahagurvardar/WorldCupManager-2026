@@ -143,7 +143,42 @@
     "compactness": "Kompaktlık",
     "counterAttack": "Kontra atak",
     "dropHint": "Oyuncuyu sahadaki slota sürükle",
-    "mismatch": "Pozisyon uyumsuzluğu"
+    "mismatch": "Pozisyon uyumsuzluğu",
+    "recommendedXi": "Önerilen 11",
+    "generatingRecommendedXi": "Önerilen 11 hazırlanıyor",
+    "applyRecommendedXi": "Önerilen 11'i uygula",
+    "recommendedXiExplanation": "Önerilen 11 analizi",
+    "recommendedXiSubtitle": "Diziliş, pozisyon uyumu, form, kondisyon ve milli takım statüsüne göre otomatik seçim.",
+    "recommendationError": "Önerilen 11 oluşturulamadı.",
+    "recommendationApplied": "Önerilen 11 sahaya uygulandı.",
+    "noRecommendation": "Öneri oluşturmak için Önerilen 11 düğmesine bas.",
+    "readinessScore": "Taktik hazırlık skoru",
+    "recommendationPool": "{{eligible}}/{{total}} uygun oyuncu değerlendirildi.",
+    "selectedPlayers": "Neden seçildiler",
+    "leftOutPlayers": "Dışarıda kalan önemli oyuncular",
+    "noLeftOutPlayers": "Önemli dışarıda kalan oyuncu yok.",
+    "score": "skor",
+    "recommendationReasons": {
+      "exactFit": "Doğal pozisyon",
+      "secondaryFit": "İkincil pozisyon uyumu",
+      "roleFit": "Rol ailesi uyumu",
+      "positionRisk": "Pozisyon riski",
+      "finalSquad": "Final kadro önceliği",
+      "provisionalSquad": "Geçici kadro derinliği",
+      "candidatePool": "Aday havuz",
+      "overallRating": "Genel güç",
+      "formScore": "Turnuva formu",
+      "fitnessScore": "Kondisyon etkisi"
+    },
+    "leftOutReasons": {
+      "injured": "Sakat olduğu için seçilmedi",
+      "minorInjury": "Sakatlık riski nedeniyle geride kaldı",
+      "notFinalSquad": "Final kadro önceliği düşük",
+      "lowFitness": "Kondisyonu düşük",
+      "lowerScore": "Aynı rol için daha yüksek skor alan oyuncular var",
+      "selected": "İlk 11'e seçildi"
+    },
+    "notEnoughPlayers": "Öneri için en az 11 uygun oyuncu gerekiyor."
   },
   "tournament": {
     "title": "Turnuva merkezi",

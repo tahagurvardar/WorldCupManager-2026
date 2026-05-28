@@ -1,4 +1,4 @@
-import { GripVertical } from 'lucide-react';
+import { CheckCircle2, GripVertical, Sparkles } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 import { PageHeader } from '../components/PageHeader.jsx';
 import { LoadingState } from '../components/LoadingState.jsx';
@@ -46,6 +46,9 @@ export function TacticsPage() {
   const [loading, setLoading] = useState(Boolean(teamId));
   const [saved, setSaved] = useState('');
   const [selectedPoolPlayer, setSelectedPoolPlayer] = useState(null);
+  const [recommendation, setRecommendation] = useState(null);
+  const [recommendationLoading, setRecommendationLoading] = useState(false);
+  const [recommendationError, setRecommendationError] = useState('');
 
   useEffect(() => {
     if (!teamId) return;
@@ -69,9 +72,12 @@ export function TacticsPage() {
   const playerById = useMemo(() => new Map(players.map((player) => [player._id, player])), [players]);
   const usedIds = useMemo(() => new Set(lineup.map((item) => item.player).filter(Boolean)), [lineup]);
   const availablePlayers = useMemo(() => players.filter((player) => !usedIds.has(player._id)), [players, usedIds]);
+  const recommendationEmptyText = players.length < 11 ? t('tactics.notEnoughPlayers') : t('tactics.noRecommendation');
 
   const changeFormation = (nextFormation) => {
     setFormation(nextFormation);
+    setRecommendation(null);
+    setRecommendationError('');
     setLineup(formationSlots[nextFormation].map(([slot, x, y], index) => ({
       slot,
       x,
@@ -83,6 +89,43 @@ export function TacticsPage() {
   const assignPlayer = (slotIndex, playerId) => {
     setLineup((current) => current.map((item, index) => (index === slotIndex ? { ...item, player: playerId } : item)));
     setSelectedPoolPlayer(null);
+  };
+
+  const generateRecommendation = async () => {
+    setRecommendationLoading(true);
+    setRecommendationError('');
+    setRecommendation(null);
+
+    try {
+      const { data } = await api.get('/manager/recommended-xi', {
+        params: { team: teamId, formation },
+      });
+      setRecommendation(data.recommendation);
+    } catch (error) {
+      setRecommendationError(error.response?.data?.message || t('tactics.recommendationError'));
+    } finally {
+      setRecommendationLoading(false);
+    }
+  };
+
+  const applyRecommendation = () => {
+    if (!recommendation?.lineup?.length) return;
+    setLineup(recommendation.lineup.map((item) => ({
+      slot: item.slot,
+      x: item.x,
+      y: item.y,
+      player: item.player?._id || null,
+    })));
+    setSelectedPoolPlayer(null);
+    setSaved(t('tactics.recommendationApplied'));
+  };
+
+  const renderReason = (reason) => {
+    const label = t(`tactics.recommendationReasons.${reason.key}`);
+    if (['overallRating', 'formScore', 'fitnessScore'].includes(reason.key)) {
+      return `${label}: ${reason.value}`;
+    }
+    return label;
   };
 
   const onDrop = (event, slotIndex) => {
@@ -111,9 +154,15 @@ export function TacticsPage() {
         <section className="panel">
           <div className="panel__head">
             <h2>{t('tactics.formation')}</h2>
-            <select value={formation} onChange={(event) => changeFormation(event.target.value)}>
-              {formations.map((item) => <option key={item} value={item}>{item}</option>)}
-            </select>
+            <div className="tactics-tools">
+              <select value={formation} onChange={(event) => changeFormation(event.target.value)}>
+                {formations.map((item) => <option key={item} value={item}>{item}</option>)}
+              </select>
+              <button className="ghost-button" type="button" onClick={generateRecommendation} disabled={recommendationLoading || players.length < 11}>
+                <Sparkles size={16} />
+                {recommendationLoading ? t('tactics.generatingRecommendedXi') : t('tactics.recommendedXi')}
+              </button>
+            </div>
           </div>
           <div className="pitch" aria-label={t('tactics.lineup')}>
             {slots.map(([slot, x, y], index) => {
@@ -171,6 +220,71 @@ export function TacticsPage() {
           ))}
         </section>
       </div>
+      <section className="panel recommendation-panel" aria-busy={recommendationLoading}>
+        <div className="panel__head">
+          <div>
+            <h2>{t('tactics.recommendedXiExplanation')}</h2>
+            <p>{t('tactics.recommendedXiSubtitle')}</p>
+          </div>
+          <button className="primary-button" type="button" onClick={applyRecommendation} disabled={!recommendation?.lineup?.length}>
+            <CheckCircle2 size={16} />
+            {t('tactics.applyRecommendedXi')}
+          </button>
+        </div>
+
+        {recommendationLoading ? <LoadingState label={t('tactics.generatingRecommendedXi')} /> : null}
+        {recommendationError ? <div className="alert alert--danger">{recommendationError}</div> : null}
+        {!recommendationLoading && !recommendationError && !recommendation ? (
+          <div className="dashboard-empty">{recommendationEmptyText}</div>
+        ) : null}
+
+        {recommendation ? (
+          <div className="recommendation-grid">
+            <article className="recommendation-readiness">
+              <span>{t('tactics.readinessScore')}</span>
+              <strong>{recommendation.readinessScore}</strong>
+              <div className="readiness-meter" aria-hidden="true">
+                <span style={{ width: `${recommendation.readinessScore}%` }} />
+              </div>
+              <small>{t('tactics.recommendationPool', { eligible: recommendation.pool.eligible, total: recommendation.pool.total })}</small>
+            </article>
+
+            <article className="recommendation-list">
+              <h3>{t('tactics.selectedPlayers')}</h3>
+              <div className="recommendation-items">
+                {recommendation.lineup.map((item) => (
+                  <div className="recommendation-item" key={`${item.slot}-${item.order}`}>
+                    <div>
+                      <strong>{item.player.fullName}</strong>
+                      <span>{t(`positions.${item.slot}`)} · {t('tactics.score')} {item.score}</span>
+                    </div>
+                    <div className="reason-cloud">
+                      {item.reasons.map((reason) => <span key={`${item.player._id}-${item.slot}-${reason.key}`}>{renderReason(reason)}</span>)}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </article>
+
+            <article className="recommendation-list">
+              <h3>{t('tactics.leftOutPlayers')}</h3>
+              <div className="recommendation-items">
+                {recommendation.omitted?.length ? recommendation.omitted.map((item) => (
+                  <div className="recommendation-item" key={item.player._id}>
+                    <div>
+                      <strong>{item.player.fullName}</strong>
+                      <span>{t(`positions.${item.player.primaryPosition}`)} · {item.player.overall}</span>
+                    </div>
+                    <div className="reason-cloud">
+                      <span>{t(`tactics.leftOutReasons.${item.reason}`)}</span>
+                    </div>
+                  </div>
+                )) : <div className="dashboard-empty">{t('tactics.noLeftOutPlayers')}</div>}
+              </div>
+            </article>
+          </div>
+        ) : null}
+      </section>
     </section>
   );
 }
