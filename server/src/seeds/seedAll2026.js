@@ -7,6 +7,7 @@ import { Player } from '../models/Player.js';
 import { Match } from '../models/Match.js';
 import { News } from '../models/News.js';
 import { Notification } from '../models/Notification.js';
+import { PressConference } from '../models/PressConference.js';
 import { Tactic } from '../models/Tactic.js';
 import { User } from '../models/User.js';
 import { teams2026 } from './seedTeams2026.js';
@@ -27,6 +28,7 @@ async function clearSeededCollections() {
     Match.deleteMany({}),
     News.deleteMany({}),
     Notification.deleteMany({}),
+    PressConference.deleteMany({}),
     Tactic.deleteMany({}),
     User.deleteMany({ email: /@wcm\.dev$/ }),
   ]);

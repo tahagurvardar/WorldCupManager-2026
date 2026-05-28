@@ -134,10 +134,6 @@ export function DashboardPage() {
     }
   };
 
-  const openPressConference = () => {
-    setActionMessage(t('dashboard.pressConferenceReady'));
-  };
-
   if (!isAuthenticated) {
     return (
       <section>
@@ -183,7 +179,7 @@ export function DashboardPage() {
           <QuickAction icon={Users} label={t('dashboard.actions.viewSquad')} to="/squad" />
           <QuickAction icon={BarChart3} label={t('dashboard.actions.opponentAnalysis')} to="/opponent-analysis" disabled={!data.fixtures.upcomingMatch} />
           <QuickAction icon={Play} label={t('dashboard.actions.simulateMatch')} onClick={simulateNextMatch} disabled={!data.fixtures.upcomingMatch || isSimulating} />
-          <QuickAction icon={Mic2} label={t('dashboard.actions.pressConference')} onClick={openPressConference} />
+          <QuickAction icon={Mic2} label={t('dashboard.actions.pressConference')} to="/press-conference" disabled={!data.fixtures.upcomingMatch} />
         </div>
       </section>
 

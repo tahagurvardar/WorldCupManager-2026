@@ -344,5 +344,85 @@
       "exploitTransitions": "Break quickly when their attacking shape opens space.",
       "selectiveBreaks": "Counter only when the first pass is clean."
     }
+  },
+  "pressConference": {
+    "title": "Press conference",
+    "subtitle": "Handle media questions before the selected team?s next match.",
+    "loading": "Preparing press conference",
+    "errorTitle": "Press conference could not load",
+    "errorMessage": "Could not load press conference.",
+    "answerError": "Could not submit the answer.",
+    "noUpcomingMatch": "No scheduled match is available for a press conference.",
+    "mediaQuestion": "Media question",
+    "answered": "Answered",
+    "progress": "Questions answered",
+    "currentMood": "Morale / media pressure",
+    "stances": {
+      "confident": "Confident",
+      "balanced": "Balanced",
+      "defensive": "Defensive"
+    },
+    "effects": {
+      "morale": "Morale",
+      "chemistry": "Chemistry",
+      "mediaPressure": "Media pressure",
+      "fanConfidence": "Fan confidence",
+      "boardConfidence": "Board confidence"
+    },
+    "questions": {
+      "opponentThreat": "{{opponent}} are rated as a {{threatLevel}} threat. How aggressive will your match plan be?",
+      "groupSituation": "Your group position is {{groupPosition}} with {{groupPoints}} points. Is this match already decisive?",
+      "moraleCheck": "Team morale is at {{morale}}. What message do you want the squad to hear before kickoff?",
+      "recentForm": "Your recent form reads {{formSequence}}. How much does that influence your selection?",
+      "favoritePressure": "{{team}} are expected to control this fixture against {{opponent}}. Do you accept favorite status?",
+      "underdogPlan": "{{opponent}} look stronger on paper. How do you convince the fans this match is winnable?"
+    },
+    "responses": {
+      "confidentDefault": "We trust our work and we are going for the win.",
+      "balancedDefault": "We respect the opponent, but our plan is clear.",
+      "defensiveDefault": "The first job is to stay compact and disciplined.",
+      "confidentThreat": "Big opponents create big opportunities. We will attack the game.",
+      "balancedThreat": "We need courage with control. The details will decide it.",
+      "defensiveThreat": "We must deny their strengths before thinking about anything else.",
+      "confidentGroup": "We want to take control of the group now.",
+      "balancedGroup": "The table matters, but we stay focused on the next action.",
+      "defensiveGroup": "A mature result is more important than a headline performance.",
+      "confidentMorale": "The players are ready to respond with personality.",
+      "balancedMorale": "The group is together and the staff will protect that balance.",
+      "defensiveMorale": "We will keep the noise outside and focus on structure.",
+      "confidentForm": "Good form gives us permission to be brave.",
+      "balancedForm": "Form helps, but each World Cup match starts from zero.",
+      "defensiveForm": "We cannot let recent results make us careless.",
+      "confidentFavorite": "We accept expectations and want to play like a leading team.",
+      "balancedFavorite": "Expectations do not win matches. Execution does.",
+      "defensiveFavorite": "Favorite tags are for the media; we need humility.",
+      "confidentUnderdog": "We are not here to admire anyone. We can hurt them.",
+      "balancedUnderdog": "Respect and belief can exist together.",
+      "defensiveUnderdog": "We need patience, discipline and the right moments."
+    },
+    "reactions": {
+      "confidentReaction": "Media outlets frame the answer as bold and energizing.",
+      "balancedReaction": "The room reads the answer as calm and professional.",
+      "defensiveReaction": "Journalists call the tone cautious but organized.",
+      "confidentThreatReaction": "The headline is clear: {{team}} will not sit back against {{opponent}}.",
+      "balancedThreatReaction": "Analysts praise the controlled confidence before facing {{opponent}}.",
+      "defensiveThreatReaction": "The media expect a compact plan built to slow {{opponent}} down.",
+      "confidentGroupReaction": "Supporters like the ambition to seize the group initiative.",
+      "balancedGroupReaction": "The press sees a measured answer to a tense group picture.",
+      "defensiveGroupReaction": "Board voices appreciate the low-risk language around the group table.",
+      "confidentMoraleReaction": "The squad receives a visible morale lift from the public backing.",
+      "balancedMoraleReaction": "The answer steadies the room and reinforces togetherness.",
+      "defensiveMoraleReaction": "The media pressure drops, though fans wanted a stronger statement.",
+      "confidentFormReaction": "The press senses momentum and raises expectations.",
+      "balancedFormReaction": "The answer keeps recent form in perspective.",
+      "defensiveFormReaction": "The cautious tone lowers noise around selection pressure.",
+      "confidentFavoriteReaction": "Accepting favorite status excites fans but increases scrutiny.",
+      "balancedFavoriteReaction": "The answer keeps standards high without feeding the hype.",
+      "defensiveFavoriteReaction": "The board likes the humility, but supporters hear caution.",
+      "confidentUnderdogReaction": "The message creates a defiant pre-match mood.",
+      "balancedUnderdogReaction": "The media call it respectful, realistic and quietly ambitious.",
+      "defensiveUnderdogReaction": "The answer lowers pressure and signals a survival-first plan."
+    },
+    "versus": "vs"
   }
 }

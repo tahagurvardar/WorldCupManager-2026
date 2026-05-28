@@ -271,78 +271,158 @@
   },
   "opponentAnalysis": {
     "title": "Rakip analizi",
-    "subtitle": "Se?ili tak?m?n s?radaki planl? ma?? i?in ma? ?n? g?zlem raporu.",
-    "loading": "Rakip analizi haz?rlan?yor",
-    "errorTitle": "Rakip analizi y?klenemedi",
-    "errorMessage": "Rakip analizi y?klenemedi.",
-    "noUpcomingMatch": "Analiz i?in planl? ma? bulunmuyor.",
+    "subtitle": "Seçili takımın sıradaki planlı maçı için maç önü gözlem raporu.",
+    "loading": "Rakip analizi hazırlanıyor",
+    "errorTitle": "Rakip analizi yüklenemedi",
+    "errorMessage": "Rakip analizi yüklenemedi.",
+    "noUpcomingMatch": "Analiz için planlı maç bulunmuyor.",
     "threatLevel": "Taktik tehdit",
-    "ours": "Bizim tak?m",
+    "ours": "Bizim takım",
     "opponent": "Rakip",
     "points": "puan",
-    "noRecentForm": "Yak?n d?nemde tamamlanan ma? yok",
-    "opponentStrengths": "Rakibin g??l? y?nleri",
-    "opponentWeaknesses": "Rakibin zay?f noktalar?",
+    "noRecentForm": "Yakın dönemde tamamlanan maç yok",
+    "opponentStrengths": "Rakibin güçlü yönleri",
+    "opponentWeaknesses": "Rakibin zayıf noktaları",
     "keyThreats": "Kilit tehditler",
     "noThreats": "Rakip tehdit verisi bulunmuyor.",
-    "recommendedPlan": "?nerilen taktik plan",
+    "recommendedPlan": "Önerilen taktik plan",
     "recentForm": "Son form",
     "keyPlayerToWatch": "Dikkat edilecek kilit oyuncu",
     "categories": {
-      "overall": "Genel g??",
-      "attack": "H?cum",
+      "overall": "Genel güç",
+      "attack": "Hücum",
       "midfield": "Orta saha",
       "defense": "Savunma",
       "goalkeeper": "Kaleci"
     },
     "edges": {
       "ours": "Avantaj bizde",
-      "opponent": "Rakip ?st?n",
+      "opponent": "Rakip üstün",
       "level": "Dengeli"
     },
     "threatLevels": {
       "elite": "Elit",
-      "high": "Y?ksek",
+      "high": "Yüksek",
       "medium": "Orta",
-      "low": "D???k"
+      "low": "Düşük"
     },
     "strengthReasons": {
-      "eliteUnit": "Elit ?nite kalitesi",
-      "clearEdge": "E?le?mede belirgin ?st?nl?k",
-      "stableUnit": "G?venilir turnuva ?nitesi"
+      "eliteUnit": "Elit ünite kalitesi",
+      "clearEdge": "Eşleşmede belirgin üstünlük",
+      "stableUnit": "Güvenilir turnuva ünitesi"
     },
     "weaknessReasons": {
-      "relativeWeakness": "Rakibin en d???k derinlik skoru",
-      "noNaturalCover": "Do?al alternatif g?r?nm?yor",
-      "thinDepth": "?lk 11 arkas?nda derinlik zay?f",
-      "lowRating": "Turnuva seviyesi beklentisinin alt?nda"
+      "relativeWeakness": "Rakibin en düşük derinlik skoru",
+      "noNaturalCover": "Doğal alternatif görünmüyor",
+      "thinDepth": "İlk 11 arkasında derinlik zayıf",
+      "lowRating": "Turnuva seviyesi beklentisinin altında"
     },
     "plan": {
       "pressing": "Pres",
       "tempo": "Tempo",
-      "defensiveLine": "Savunma ?izgisi",
+      "defensiveLine": "Savunma çizgisi",
       "counterAttack": "Kontra atak"
     },
     "planLevels": {
-      "high": "Y?ksek",
+      "high": "Yüksek",
       "balanced": "Dengeli",
-      "measured": "?l??l?",
-      "fast": "H?zl?",
-      "controlled": "Kontroll?",
+      "measured": "Ölçülü",
+      "fast": "Hızlı",
+      "controlled": "Kontrollü",
       "standard": "Standart",
       "deep": "Derin",
       "enabled": "Aktif",
-      "selective": "Se?ici"
+      "selective": "Seçici"
     },
     "planReasons": {
-      "targetBuildUp": "Zay?f oyun kurulumunu hedefle ve acele uzakla?t?rmaya zorla.",
+      "targetBuildUp": "Zayıf oyun kurulumunu hedefle ve acele uzaklaştırmaya zorla.",
       "manageEnergy": "Bloku yormadan kompakt pres uygula.",
-      "attackSpace": "Savunma arkas? bo?luklara daha direkt h?cum et.",
-      "controlRhythm": "Orta saha kontrol?yle ma? h?z?n? sen belirle.",
-      "protectDepth": "Ko?ulara kar?? savunma arkas? alan? koru.",
-      "compressSpace": "Sahay? daralt ve rakibi ritimden uzak tut.",
-      "exploitTransitions": "Rakibin h?cum yerle?imi bo?luk verdi?inde h?zl? ??k.",
-      "selectiveBreaks": "?lk pas temiz oldu?unda kontra ata?a ??k."
+      "attackSpace": "Savunma arkası boşluklara daha direkt hücum et.",
+      "controlRhythm": "Orta saha kontrolüyle maç hızını sen belirle.",
+      "protectDepth": "Koşulara karşı savunma arkası alanı koru.",
+      "compressSpace": "Sahayı daralt ve rakibi ritimden uzak tut.",
+      "exploitTransitions": "Rakibin hücum yerleşimi boşluk verdiğinde hızlı çık.",
+      "selectiveBreaks": "İlk pas temiz olduğunda kontra atağa çık."
     }
+  },
+  "pressConference": {
+    "title": "Basın toplantısı",
+    "subtitle": "Seçili takımın sıradaki maçı öncesi medya sorularını yönet.",
+    "loading": "Basın toplantısı hazırlanıyor",
+    "errorTitle": "Basın toplantısı yüklenemedi",
+    "errorMessage": "Basın toplantısı yüklenemedi.",
+    "answerError": "Cevap gönderilemedi.",
+    "noUpcomingMatch": "Basın toplantısı için planlı maç bulunmuyor.",
+    "mediaQuestion": "Medya sorusu",
+    "answered": "Cevaplandı",
+    "progress": "Cevaplanan soru",
+    "currentMood": "Moral / medya baskısı",
+    "stances": {
+      "confident": "İddialı",
+      "balanced": "Dengeli",
+      "defensive": "Temkinli"
+    },
+    "effects": {
+      "morale": "Moral",
+      "chemistry": "Uyum",
+      "mediaPressure": "Medya baskısı",
+      "fanConfidence": "Taraftar güveni",
+      "boardConfidence": "Yönetim güveni"
+    },
+    "questions": {
+      "opponentThreat": "{{opponent}} için tehdit seviyesi {{threatLevel}} görünüyor. Maç planınız ne kadar agresif olacak?",
+      "groupSituation": "Grupta {{groupPosition}}. sıradasınız ve {{groupPoints}} puanınız var. Bu maç şimdiden belirleyici mi?",
+      "moraleCheck": "Takım morali {{morale}} seviyesinde. Oyuncuların maçtan önce hangi mesajı duymasını istersiniz?",
+      "recentForm": "Son form grafiğiniz {{formSequence}}. Bu durum ilk 11 seçiminizi ne kadar etkiliyor?",
+      "favoritePressure": "{{team}}, {{opponent}} karşısında oyunu kontrol etmesi beklenen taraf. Favori rolünü kabul ediyor musunuz?",
+      "underdogPlan": "{{opponent}} kağıt üzerinde daha güçlü görünüyor. Taraftarı bu maçın kazanılabilir olduğuna nasıl ikna edersiniz?"
+    },
+    "responses": {
+      "confidentDefault": "Çalışmamıza güveniyoruz ve kazanmak için sahaya çıkacağız.",
+      "balancedDefault": "Rakibe saygımız var ama planımız net.",
+      "defensiveDefault": "İlk görev kompakt ve disiplinli kalmak.",
+      "confidentThreat": "Büyük rakipler büyük fırsatlar yaratır. Maça saldıracağız.",
+      "balancedThreat": "Kontrollü cesarete ihtiyacımız var. Detaylar belirleyici olacak.",
+      "defensiveThreat": "Önce onların güçlü yanlarını durdurmalıyız.",
+      "confidentGroup": "Grubun kontrolünü şimdi almak istiyoruz.",
+      "balancedGroup": "Tablo önemli ama odağımız bir sonraki aksiyon.",
+      "defensiveGroup": "Olgun bir sonuç, manşetlik performanstan daha değerli.",
+      "confidentMorale": "Oyuncular karakter göstererek cevap vermeye hazır.",
+      "balancedMorale": "Grup bir arada ve teknik ekip bu dengeyi koruyacak.",
+      "defensiveMorale": "Gürültüyü dışarıda bırakıp yapıya odaklanacağız.",
+      "confidentForm": "İyi form bize cesur oynama izni verir.",
+      "balancedForm": "Form yardımcı olur ama her Dünya Kupası maçı sıfırdan başlar.",
+      "defensiveForm": "Son sonuçların bizi dikkatsizleştirmesine izin veremeyiz.",
+      "confidentFavorite": "Beklentiyi kabul ediyoruz ve lider takım gibi oynamak istiyoruz.",
+      "balancedFavorite": "Beklentiler maç kazandırmaz. Uygulama kazandırır.",
+      "defensiveFavorite": "Favori etiketi medyanın işi; bize tevazu lazım.",
+      "confidentUnderdog": "Buraya kimseyi izlemeye gelmedik. Onlara zarar verebiliriz.",
+      "balancedUnderdog": "Saygı ve inanç aynı anda var olabilir.",
+      "defensiveUnderdog": "Sabır, disiplin ve doğru anlara ihtiyacımız var."
+    },
+    "reactions": {
+      "confidentReaction": "Medya cevabı cesur ve enerji verici olarak yorumluyor.",
+      "balancedReaction": "Salon cevabı sakin ve profesyonel buluyor.",
+      "defensiveReaction": "Gazeteciler tonu temkinli ama düzenli görüyor.",
+      "confidentThreatReaction": "Manşet net: {{team}}, {{opponent}} karşısında geri yaslanmayacak.",
+      "balancedThreatReaction": "Analistler {{opponent}} öncesi kontrollü özgüveni övüyor.",
+      "defensiveThreatReaction": "Medya, {{opponent}} temposunu düşürmeye dönük kompakt bir plan bekliyor.",
+      "confidentGroupReaction": "Taraftarlar grupta inisiyatifi alma hırsını seviyor.",
+      "balancedGroupReaction": "Basın, gergin grup tablosuna ölçülü bir cevap görüyor.",
+      "defensiveGroupReaction": "Yönetim, grup tablosu için düşük riskli dili olumlu karşılıyor.",
+      "confidentMoraleReaction": "Oyuncular kamuoyu önündeki destekle görünür bir moral artışı yaşıyor.",
+      "balancedMoraleReaction": "Cevap salonu sakinleştiriyor ve birlik duygusunu güçlendiriyor.",
+      "defensiveMoraleReaction": "Medya baskısı düşüyor ama taraftar daha güçlü bir mesaj bekliyordu.",
+      "confidentFormReaction": "Basın momentum hissediyor ve beklentiyi yükseltiyor.",
+      "balancedFormReaction": "Cevap son formu doğru perspektifte tutuyor.",
+      "defensiveFormReaction": "Temkinli ton, seçim baskısı etrafındaki gürültüyü azaltıyor.",
+      "confidentFavoriteReaction": "Favori rolünü kabul etmek taraftarı heyecanlandırıyor ama merceği büyütüyor.",
+      "balancedFavoriteReaction": "Cevap standartları yüksek tutarken abartıyı beslemiyor.",
+      "defensiveFavoriteReaction": "Yönetim tevazuyu seviyor ama taraftar temkin hissediyor.",
+      "confidentUnderdogReaction": "Mesaj meydan okuyan bir maç önü havası yaratıyor.",
+      "balancedUnderdogReaction": "Medya bunu saygılı, gerçekçi ve sessizce iddialı buluyor.",
+      "defensiveUnderdogReaction": "Cevap baskıyı azaltıyor ve önce hayatta kalma planını işaret ediyor."
+    },
+    "versus": "vs"
   }
 }
