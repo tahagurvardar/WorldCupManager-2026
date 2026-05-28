@@ -3,12 +3,31 @@ import { localizedStringSchema } from './shared.js';
 
 const newsSchema = new mongoose.Schema(
   {
-    category: { type: String, enum: ['tournament', 'team', 'injury', 'media', 'result'], default: 'tournament', index: true },
+    category: {
+      type: String,
+      enum: [
+        'tournament',
+        'team',
+        'injury',
+        'media',
+        'result',
+        'match_report',
+        'media_reaction',
+        'fan_reaction',
+        'tactical_analysis',
+        'player_spotlight',
+        'board_reaction',
+      ],
+      default: 'tournament',
+      index: true,
+    },
+    dedupeKey: { type: String, unique: true, sparse: true, index: true },
     title: { type: localizedStringSchema, required: true },
     body: { type: localizedStringSchema, required: true },
     team: { type: mongoose.Schema.Types.ObjectId, ref: 'NationalTeam' },
     match: { type: mongoose.Schema.Types.ObjectId, ref: 'Match' },
     pressureLevel: { type: Number, min: 0, max: 100, default: 45 },
+    metadata: { type: Object, default: {} },
     publishedAt: { type: Date, default: Date.now },
   },
   { timestamps: true },

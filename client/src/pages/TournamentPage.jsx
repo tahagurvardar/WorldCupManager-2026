@@ -5,17 +5,35 @@ import { GroupTable } from '../components/GroupTable.jsx';
 import { MatchCard } from '../components/MatchCard.jsx';
 import { PlayerRow } from '../components/PlayerRow.jsx';
 import { useLanguage } from '../context/LanguageContext.jsx';
-import { api } from '../services/api.js';
+import { api, getApiError } from '../services/api.js';
 
 export function TournamentPage() {
   const { t, localize } = useLanguage();
   const [data, setData] = useState(null);
+  const [error, setError] = useState('');
 
   useEffect(() => {
-    api.get('/tournament/center').then(({ data: response }) => setData(response));
-  }, []);
+    api.get('/tournament/center')
+      .then(({ data: response }) => {
+        setData(response);
+        setError('');
+      })
+      .catch((apiError) => setError(getApiError(apiError, t('tournament.errorMessage'))));
+  }, [t]);
 
-  if (!data) return <LoadingState />;
+  if (!data && !error) return <LoadingState />;
+
+  if (!data) {
+    return (
+      <section>
+        <PageHeader title={t('tournament.title')} subtitle={t('tournament.subtitle')} />
+        <div className="dashboard-error">
+          <strong>{t('tournament.errorTitle')}</strong>
+          <p>{error}</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section>
@@ -50,12 +68,13 @@ export function TournamentPage() {
         <section className="panel">
           <div className="panel__head"><h2>{t('tournament.news')}</h2></div>
           <div className="news-list">
-            {data.news.map((item) => (
+            {data.news.length ? data.news.map((item) => (
               <article key={item._id}>
+                <span className="news-category">{t(`newsCategories.${item.category}`)}</span>
                 <strong>{localize(item.title)}</strong>
                 <p>{localize(item.body)}</p>
               </article>
-            ))}
+            )) : <div className="dashboard-empty">{t('tournament.noNews')}</div>}
           </div>
         </section>
         <section className="panel">

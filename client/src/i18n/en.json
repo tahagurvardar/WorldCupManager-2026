@@ -197,7 +197,10 @@
     "for": "F",
     "against": "A",
     "gd": "GD",
-    "points": "Pts"
+    "points": "Pts",
+    "errorTitle": "Tournament center could not load",
+    "errorMessage": "Could not load tournament center data.",
+    "noNews": "No fresh tournament news."
   },
   "match": {
     "title": "Match center",
@@ -424,5 +427,18 @@
       "defensiveUnderdogReaction": "The answer lowers pressure and signals a survival-first plan."
     },
     "versus": "vs"
+  },
+  "newsCategories": {
+    "tournament": "Tournament",
+    "team": "Team news",
+    "injury": "Injury",
+    "media": "Media",
+    "result": "Result",
+    "match_report": "Match report",
+    "media_reaction": "Media reaction",
+    "fan_reaction": "Fan reaction",
+    "tactical_analysis": "Tactical analysis",
+    "player_spotlight": "Player spotlight",
+    "board_reaction": "Board reaction"
   }
 }

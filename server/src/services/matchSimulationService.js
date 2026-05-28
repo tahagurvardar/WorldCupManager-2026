@@ -4,7 +4,7 @@ import { NationalTeam } from '../models/NationalTeam.js';
 import { Tactic } from '../models/Tactic.js';
 import { HttpError } from './httpError.js';
 import { simulateMatchEngine } from './matchEngine.js';
-import { buildResultNews } from './newsService.js';
+import { buildPostMatchNews } from './newsService.js';
 
 async function playersForTeam(teamId) {
   const final = await Player.find({ country: teamId, nationalTeamStatus: 'final' }).sort({ overall: -1 });
@@ -95,7 +95,10 @@ async function updateTeamDynamics(match, result) {
 export async function simulateMatchById(matchId) {
   const match = await Match.findById(matchId).populate('home.team').populate('away.team');
   if (!match) throw new HttpError(404, 'Match not found');
-  if (match.status === 'completed') return match;
+  if (match.status === 'completed') {
+    await buildPostMatchNews(match);
+    return match;
+  }
 
   const [homePlayers, awayPlayers, homeTactic, awayTactic] = await Promise.all([
     playersForTeam(match.home.team._id),
@@ -133,9 +136,7 @@ export async function simulateMatchById(matchId) {
   await applyPlayerStats(match, result);
   await updateTeamDynamics(match, result);
 
-  if (result.winner) {
-    await buildResultNews(match);
-  }
+  await buildPostMatchNews(match);
 
   return Match.findById(match._id).populate('home.team').populate('away.team').populate('winner');
 }

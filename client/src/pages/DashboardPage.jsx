@@ -267,6 +267,7 @@ export function DashboardPage() {
           <div className="news-list">
             {news.length ? news.map((item) => (
               <article key={item._id}>
+                <span className="news-category">{t(`newsCategories.${item.category}`)}</span>
                 <strong>{localize(item.title)}</strong>
                 <p>{localize(item.body)}</p>
               </article>

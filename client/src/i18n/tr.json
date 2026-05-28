@@ -197,7 +197,10 @@
     "for": "A",
     "against": "Y",
     "gd": "AV",
-    "points": "P"
+    "points": "P",
+    "errorTitle": "Turnuva merkezi yüklenemedi",
+    "errorMessage": "Turnuva merkezi verileri yüklenemedi.",
+    "noNews": "Yeni turnuva haberi bulunmuyor."
   },
   "match": {
     "title": "Maç merkezi",
@@ -424,5 +427,18 @@
       "defensiveUnderdogReaction": "Cevap baskıyı azaltıyor ve önce hayatta kalma planını işaret ediyor."
     },
     "versus": "vs"
+  },
+  "newsCategories": {
+    "tournament": "Turnuva",
+    "team": "Takım haberi",
+    "injury": "Sakatlık",
+    "media": "Medya",
+    "result": "Sonuç",
+    "match_report": "Maç raporu",
+    "media_reaction": "Medya tepkisi",
+    "fan_reaction": "Taraftar tepkisi",
+    "tactical_analysis": "Taktik analiz",
+    "player_spotlight": "Oyuncu odağı",
+    "board_reaction": "Yönetim tepkisi"
   }
 }
