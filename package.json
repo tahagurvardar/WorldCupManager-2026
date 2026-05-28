@@ -1,0 +1,21 @@
+{
+  "name": "worldcupmanager-2026",
+  "version": "0.1.0",
+  "private": true,
+  "description": "WorldCupManager 2026 full-stack national team management simulation platform.",
+  "scripts": {
+    "dev:client": "npm run dev --prefix client",
+    "dev:server": "npm run dev --prefix server",
+    "build": "npm run build --prefix client",
+    "lint": "npm run lint --prefix client",
+    "seed": "npm run seed --prefix server",
+    "smoke": "npm run smoke --prefix server && npm run build --prefix client"
+  },
+  "keywords": [
+    "world-cup",
+    "football-manager",
+    "simulation"
+  ],
+  "author": "",
+  "license": "MIT"
+}
