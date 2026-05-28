@@ -8,6 +8,7 @@ import { HttpError } from '../services/httpError.js';
 import { asyncHandler } from '../services/asyncHandler.js';
 import { evaluateSquad } from '../services/squadRules.js';
 import { calculateGroupStandings } from '../services/standingsService.js';
+import { simulateMatchById } from '../services/matchSimulationService.js';
 
 export const selectTeamSchema = z.object({
   body: z.object({
@@ -62,4 +63,23 @@ export const getDashboard = asyncHandler(async (req, res) => {
     news,
     pressure: Math.min(100, 35 + (100 - team.morale) * 0.35 + (team.worldRanking <= 20 ? 22 : 10)),
   });
+});
+
+export const simulateNextMatch = asyncHandler(async (req, res) => {
+  if (!req.user.selectedTeam) {
+    throw new HttpError(400, 'Manager has not selected a national team');
+  }
+
+  const teamId = req.user.selectedTeam._id || req.user.selectedTeam;
+  const match = await Match.findOne({
+    status: 'scheduled',
+    $or: [{ 'home.team': teamId }, { 'away.team': teamId }],
+  }).sort({ kickoffAt: 1 });
+
+  if (!match) {
+    throw new HttpError(404, 'No scheduled match found for selected team');
+  }
+
+  const simulatedMatch = await simulateMatchById(match._id);
+  res.json({ success: true, match: simulatedMatch });
 });

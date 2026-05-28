@@ -1040,6 +1040,248 @@ select:focus {
   color: var(--muted);
 }
 
+.manager-home {
+  display: grid;
+  gap: 18px;
+}
+
+.manager-home .page-header {
+  margin-bottom: 0;
+}
+
+.dashboard-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  padding: 20px;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent-2) 24%, transparent), transparent 46%),
+    linear-gradient(180deg, color-mix(in srgb, var(--surface) 96%, white 4%), var(--surface));
+}
+
+.dashboard-hero__identity {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.dashboard-hero__identity h2 {
+  margin-top: 4px;
+  font-size: 28px;
+}
+
+.dashboard-hero__identity span,
+.dashboard-hero__identity p {
+  color: var(--muted);
+}
+
+.dashboard-hero__identity p {
+  margin-top: 6px;
+  max-width: 620px;
+}
+
+.dashboard-quick-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 560px;
+}
+
+.dashboard-action {
+  min-height: 38px;
+  white-space: nowrap;
+}
+
+.manager-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.manager-card {
+  min-width: 0;
+}
+
+.manager-card--next {
+  grid-column: span 5;
+}
+
+.manager-card--confidence {
+  grid-column: span 7;
+}
+
+.manager-card--table {
+  grid-column: span 7;
+}
+
+.manager-card--squad,
+.manager-card--tactical {
+  grid-column: span 5;
+}
+
+.manager-card--injuries,
+.manager-card--performers,
+.manager-card--news {
+  grid-column: span 4;
+}
+
+.confidence-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.confidence-card {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.confidence-card div:first-child {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.confidence-card span,
+.confidence-card small {
+  color: var(--muted);
+}
+
+.confidence-card strong {
+  color: var(--accent);
+  font-size: 22px;
+  white-space: nowrap;
+}
+
+.confidence-card--danger strong {
+  color: var(--danger);
+}
+
+.confidence-card__bar,
+.readiness-meter {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface-3) 70%, black 12%);
+}
+
+.confidence-card__bar span,
+.readiness-meter span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+
+.confidence-card--danger .confidence-card__bar span {
+  background: linear-gradient(90deg, var(--amber), var(--danger));
+}
+
+.squad-status-grid,
+.readiness-breakdown {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.squad-status-grid div,
+.readiness-breakdown div {
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.squad-status-grid span,
+.readiness-breakdown dt {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.squad-status-grid strong,
+.readiness-breakdown dd {
+  display: block;
+  margin: 4px 0 0;
+  color: var(--text);
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.dashboard-warning-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.dashboard-warning {
+  display: block;
+  padding: 9px 10px;
+  border: 1px solid color-mix(in srgb, var(--amber) 70%, var(--border));
+  border-radius: var(--radius);
+  color: var(--amber);
+  background: color-mix(in srgb, var(--amber) 10%, transparent);
+  font-size: 13px;
+}
+
+.dashboard-warning--danger {
+  border-color: color-mix(in srgb, var(--danger) 70%, var(--border));
+  color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 10%, transparent);
+}
+
+.readiness-score {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.readiness-score strong {
+  font-size: 52px;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.readiness-score span {
+  color: var(--muted);
+}
+
+.readiness-breakdown {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 14px;
+}
+
+.dashboard-empty,
+.dashboard-error {
+  display: grid;
+  gap: 10px;
+  place-items: start;
+  padding: 14px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  color: var(--muted);
+  background: color-mix(in srgb, var(--surface-2) 65%, transparent);
+}
+
+.dashboard-error {
+  max-width: 680px;
+  border-style: solid;
+  border-color: color-mix(in srgb, var(--danger) 62%, var(--border));
+}
+
+.dashboard-error strong {
+  color: var(--danger);
+}
+
 .quality-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -1281,6 +1523,26 @@ select:focus {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .dashboard-hero,
+  .manager-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-quick-actions {
+    justify-content: flex-start;
+  }
+
+  .manager-card--next,
+  .manager-card--confidence,
+  .manager-card--table,
+  .manager-card--squad,
+  .manager-card--tactical,
+  .manager-card--injuries,
+  .manager-card--performers,
+  .manager-card--news {
+    grid-column: 1;
+  }
+
   .tactics-layout {
     grid-template-columns: 1fr;
   }
@@ -1333,8 +1595,25 @@ select:focus {
 
   .quality-grid,
   .mini-metrics,
-  .attribute-grid {
+  .attribute-grid,
+  .confidence-grid,
+  .squad-status-grid,
+  .readiness-breakdown {
     grid-template-columns: 1fr;
+  }
+
+  .dashboard-hero__identity {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .dashboard-quick-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-action {
+    width: 100%;
   }
 
   .player-profile__hero {
