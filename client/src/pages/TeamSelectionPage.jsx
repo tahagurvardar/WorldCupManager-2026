@@ -35,9 +35,13 @@ export function TeamSelectionPage() {
       navigate('/login');
       return;
     }
-    const { data } = await api.post('/manager/select-team', { teamId });
-    setUser(data.user);
-    navigate('/dashboard');
+    try {
+      const { data } = await api.post('/manager/select-team', { teamId });
+      setUser(data.user);
+      navigate('/dashboard');
+    } catch (apiError) {
+      setError(getApiError(apiError, t('app.error')));
+    }
   };
 
   if (loading) return <LoadingState />;
@@ -47,7 +51,7 @@ export function TeamSelectionPage() {
       <PageHeader title={t('teams.title')} subtitle={t('teams.subtitle')} />
       {error ? <div className="alert alert--danger">{error}</div> : null}
       <div className="group-grid">
-        {Object.entries(groups).sort(([a], [b]) => a.localeCompare(b)).map(([group, groupTeams]) => (
+        {Object.entries(groups).length ? Object.entries(groups).sort(([a], [b]) => a.localeCompare(b)).map(([group, groupTeams]) => (
           <section className="panel" key={group}>
             <div className="panel__head">
               <h2>{t('teams.group')} {group}</h2>
@@ -59,7 +63,7 @@ export function TeamSelectionPage() {
                     <Flag team={team} size="lg" />
                     <div>
                       <strong>{teamName(team, language)}</strong>
-                      <span>{team.fifaCode} · {team.confederation}</span>
+                      <span>{team.fifaCode} / {team.confederation}</span>
                     </div>
                   </div>
                   <dl className="mini-metrics">
@@ -74,7 +78,7 @@ export function TeamSelectionPage() {
               ))}
             </div>
           </section>
-        ))}
+        )) : <div className="dashboard-empty">{t('teams.empty')}</div>}
       </div>
     </section>
   );

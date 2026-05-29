@@ -105,7 +105,8 @@
     "coach": "Teknik direktör",
     "group": "Grup",
     "selected": "Seçili takım",
-    "becomeManager": "Teknik direktör ol"
+    "becomeManager": "Teknik direktör ol",
+    "empty": "Milli takım bulunamadı."
   },
   "squad": {
     "title": "Final 26 kişilik kadro",
@@ -119,6 +120,9 @@
     "candidate": "Aday",
     "provisional": "Geçici",
     "final": "Final",
+    "errorTitle": "Kadro yüklenemedi",
+    "errorMessage": "Kadro verileri yüklenemedi.",
+    "noPlayers": "Bu takım için oyuncu bulunamadı.",
     "errors": {
       "minPlayers": "Final kadroda en az 23 oyuncu olmalı.",
       "maxPlayers": "Final kadroda en fazla 26 oyuncu olabilir.",
@@ -154,6 +158,11 @@
     "recommendationError": "Önerilen 11 oluşturulamadı.",
     "recommendationApplied": "Önerilen 11 sahaya uygulandı.",
     "noRecommendation": "Öneri oluşturmak için Önerilen 11 düğmesine bas.",
+    "errorTitle": "Taktik yüklenemedi",
+    "errorMessage": "Taktik verileri yüklenemedi.",
+    "saveError": "Taktik kaydedilemedi.",
+    "noPlayers": "Bu takım için uygun oyuncu yok.",
+    "noBenchPlayers": "Tüm uygun oyuncular şu anda sahaya yerleştirildi.",
     "readinessScore": "Taktik hazırlık skoru",
     "recommendationPool": "{{eligible}}/{{total}} uygun oyuncu değerlendirildi.",
     "selectedPlayers": "Neden seçildiler",
@@ -202,7 +211,10 @@
     "points": "P",
     "errorTitle": "Turnuva merkezi yüklenemedi",
     "errorMessage": "Turnuva merkezi verileri yüklenemedi.",
-    "noNews": "Yeni turnuva haberi bulunmuyor."
+    "noNews": "Yeni turnuva haberi bulunmuyor.",
+    "noUpcoming": "Yaklaşan maç yok.",
+    "noCompleted": "Henüz tamamlanan maç yok.",
+    "noInjuries": "Sakat oyuncu yok."
   },
   "match": {
     "title": "Maç merkezi",
@@ -272,7 +284,21 @@
     "groupToSimulate": "Simüle edilecek grup",
     "totals": "Toplamlar",
     "missing": "Eksik veri",
-    "adminOnly": "Bu sayfa admin yetkisi ister."
+    "adminOnly": "Bu sayfa admin yetkisi ister.",
+    "errorTitle": "Admin paneli yüklenemedi",
+    "errorMessage": "Admin verileri yüklenemedi.",
+    "qualityLabels": {
+      "teams": "Takımlar",
+      "players": "Oyuncular",
+      "matches": "Maçlar",
+      "news": "Haberler",
+      "teamsWithoutCoach": "Teknik direktörü olmayan takımlar",
+      "teamsWithoutOfficialMetadata": "Resmi metadata eksiği olan takımlar",
+      "playersWithoutClub": "Kulüp bilgisi eksik oyuncular",
+      "teamsUnderMinCandidates": "Aday minimumunun altındaki takımlar",
+      "unsimulatedGroupMatches": "Simüle edilmemiş grup maçları",
+      "newsItems": "Haber sayısı"
+    }
   },
   "knockout": {
     "title": "Eleme ağacı",
@@ -285,14 +311,38 @@
     "quarter_final": "Çeyrek final",
     "semi_final": "Yarı final",
     "third_place": "Üçüncülük maçı",
-    "final": "Final"
+    "final": "Final",
+    "errorTitle": "Eleme ağacı yüklenemedi",
+    "errorMessage": "Eleme ağacı yüklenemedi."
   },
   "stats": {
     "title": "Oyuncu istatistikleri",
     "subtitle": "Gol, asist, oynanan maç, ortalama, kartlar ve kaleci clean sheet verileri.",
     "goals": "Goller",
     "assists": "Asistler",
-    "ratings": "Rating"
+    "ratings": "Rating",
+    "teamPlayerStats": "Takım oyuncu istatistikleri",
+    "allTeams": "Tüm takımlar",
+    "player": "Oyuncu",
+    "apps": "Oynanan",
+    "yellowCards": "Sarı",
+    "redCards": "Kırmızı",
+    "cleanSheets": "Gol yemediği maç",
+    "errorTitle": "İstatistikler yüklenemedi",
+    "errorMessage": "Turnuva istatistikleri yüklenemedi.",
+    "noGoals": "Henüz gol kaydedilmedi.",
+    "noAssists": "Henüz asist kaydedilmedi.",
+    "noRatings": "Henüz rating kaydedilmedi.",
+    "noPlayers": "Bu filtreye uygun oyuncu yok."
+  },
+  "playerProfile": {
+    "overall": "Genel güç",
+    "appearances": "Oynanan maç",
+    "yellowCards": "Sarı kart",
+    "redCards": "Kırmızı kart",
+    "cleanSheets": "Gol yemediği maç",
+    "errorTitle": "Oyuncu profili yüklenemedi",
+    "errorMessage": "Oyuncu profili yüklenemedi."
   },
   "notifications": {
     "title": "Bildirimler",

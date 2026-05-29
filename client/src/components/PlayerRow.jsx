@@ -20,7 +20,7 @@ export function PlayerRow({ player, selectable = false, checked = false, onToggl
   const { t, language } = useLanguage();
   const country = player.country ? teamName(player.country, language) : '';
   const ageLabel = language === 'tr' ? `${player.age} yaş` : `age ${player.age}`;
-  const meta = [country || player.country?.fifaCode, ageLabel].filter(Boolean).join(' · ');
+  const meta = [country || player.country?.fifaCode, ageLabel].filter(Boolean).join(' / ');
 
   return (
     <div className="player-row">

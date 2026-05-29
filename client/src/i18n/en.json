@@ -105,7 +105,8 @@
     "coach": "Coach",
     "group": "Group",
     "selected": "Selected team",
-    "becomeManager": "Become manager"
+    "becomeManager": "Become manager",
+    "empty": "No national teams found."
   },
   "squad": {
     "title": "Final 26-player squad",
@@ -119,6 +120,9 @@
     "candidate": "Candidate",
     "provisional": "Provisional",
     "final": "Final",
+    "errorTitle": "Squad could not load",
+    "errorMessage": "Could not load squad data.",
+    "noPlayers": "No players found for this team.",
     "errors": {
       "minPlayers": "Final squad must have at least 23 players.",
       "maxPlayers": "Final squad can have at most 26 players.",
@@ -154,6 +158,11 @@
     "recommendationError": "Could not build a Recommended XI.",
     "recommendationApplied": "Recommended XI applied to the pitch.",
     "noRecommendation": "Press Recommended XI to generate a lineup.",
+    "errorTitle": "Tactics could not load",
+    "errorMessage": "Could not load tactics data.",
+    "saveError": "Could not save tactics.",
+    "noPlayers": "No players are available for this team.",
+    "noBenchPlayers": "All available players are currently assigned.",
     "readinessScore": "Tactical readiness score",
     "recommendationPool": "{{eligible}}/{{total}} eligible players evaluated.",
     "selectedPlayers": "Why they were selected",
@@ -202,7 +211,10 @@
     "points": "Pts",
     "errorTitle": "Tournament center could not load",
     "errorMessage": "Could not load tournament center data.",
-    "noNews": "No fresh tournament news."
+    "noNews": "No fresh tournament news.",
+    "noUpcoming": "No upcoming matches.",
+    "noCompleted": "No completed matches yet.",
+    "noInjuries": "No injured players."
   },
   "match": {
     "title": "Match center",
@@ -272,7 +284,21 @@
     "groupToSimulate": "Group to simulate",
     "totals": "Totals",
     "missing": "Missing data",
-    "adminOnly": "This page requires admin permission."
+    "adminOnly": "This page requires admin permission.",
+    "errorTitle": "Admin panel could not load",
+    "errorMessage": "Could not load admin data.",
+    "qualityLabels": {
+      "teams": "Teams",
+      "players": "Players",
+      "matches": "Matches",
+      "news": "News",
+      "teamsWithoutCoach": "Teams without coach",
+      "teamsWithoutOfficialMetadata": "Teams without official metadata",
+      "playersWithoutClub": "Players without club",
+      "teamsUnderMinCandidates": "Teams under candidate minimum",
+      "unsimulatedGroupMatches": "Unsimulated group matches",
+      "newsItems": "News items"
+    }
   },
   "knockout": {
     "title": "Knockout bracket",
@@ -285,14 +311,38 @@
     "quarter_final": "Quarter-final",
     "semi_final": "Semi-final",
     "third_place": "Third-place match",
-    "final": "Final"
+    "final": "Final",
+    "errorTitle": "Knockout bracket could not load",
+    "errorMessage": "Could not load knockout bracket."
   },
   "stats": {
     "title": "Player statistics",
     "subtitle": "Goals, assists, appearances, average rating, cards and goalkeeper clean sheets.",
     "goals": "Goals",
     "assists": "Assists",
-    "ratings": "Ratings"
+    "ratings": "Ratings",
+    "teamPlayerStats": "Team player statistics",
+    "allTeams": "All teams",
+    "player": "Player",
+    "apps": "Apps",
+    "yellowCards": "Yellow",
+    "redCards": "Red",
+    "cleanSheets": "Clean sheets",
+    "errorTitle": "Statistics could not load",
+    "errorMessage": "Could not load tournament statistics.",
+    "noGoals": "No goals recorded yet.",
+    "noAssists": "No assists recorded yet.",
+    "noRatings": "No ratings recorded yet.",
+    "noPlayers": "No players match this filter."
+  },
+  "playerProfile": {
+    "overall": "Overall",
+    "appearances": "Appearances",
+    "yellowCards": "Yellow cards",
+    "redCards": "Red cards",
+    "cleanSheets": "Clean sheets",
+    "errorTitle": "Player profile could not load",
+    "errorMessage": "Could not load player profile."
   },
   "notifications": {
     "title": "Notifications",
@@ -316,7 +366,7 @@
   },
   "opponentAnalysis": {
     "title": "Opponent analysis",
-    "subtitle": "Pre-match scouting for the selected team?s next scheduled fixture.",
+    "subtitle": "Pre-match scouting for the selected team's next scheduled fixture.",
     "loading": "Building opponent analysis",
     "errorTitle": "Opponent analysis could not load",
     "errorMessage": "Could not load opponent analysis.",
@@ -392,7 +442,7 @@
   },
   "pressConference": {
     "title": "Press conference",
-    "subtitle": "Handle media questions before the selected team?s next match.",
+    "subtitle": "Handle media questions before the selected team's next match.",
     "loading": "Preparing press conference",
     "errorTitle": "Press conference could not load",
     "errorMessage": "Could not load press conference.",
@@ -485,7 +535,7 @@
   },
   "journey": {
     "title": "Tournament journey",
-    "subtitle": "Track the selected team?s World Cup path, manager grade and media reaction.",
+    "subtitle": "Track the selected team's World Cup path, manager grade and media reaction.",
     "errorTitle": "Tournament journey could not load",
     "errorMessage": "Could not load tournament journey.",
     "currentStatus": "Current status",
@@ -566,7 +616,7 @@
       "eliminationConcern": "The board wants a detailed review of the tournament exit.",
       "eliminationFrustration": "Supporters are frustrated by how the journey ended.",
       "eliminationScrutiny": "Media pressure turns sharply toward accountability.",
-      "boardExcellent": "The board is highly satisfied with the manager?s work.",
+      "boardExcellent": "The board is highly satisfied with the manager's work.",
       "fansInspired": "Fans feel the team is playing above expectation.",
       "mediaPraise": "The media is framing the campaign positively.",
       "boardStable": "The board remains broadly supportive.",

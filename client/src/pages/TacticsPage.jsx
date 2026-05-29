@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { PageHeader } from '../components/PageHeader.jsx';
 import { LoadingState } from '../components/LoadingState.jsx';
 import { useLanguage } from '../context/LanguageContext.jsx';
-import { api } from '../services/api.js';
+import { api, getApiError } from '../services/api.js';
 import { useAuthStore } from '../store/useAuthStore.js';
 import { formationSlots, formations, isPositionFit } from '../utils/formations.js';
 
@@ -45,6 +45,8 @@ export function TacticsPage() {
   const [sliders, setSliders] = useState(defaultSliders);
   const [loading, setLoading] = useState(Boolean(teamId));
   const [saved, setSaved] = useState('');
+  const [saveFailed, setSaveFailed] = useState(false);
+  const [error, setError] = useState('');
   const [selectedPoolPlayer, setSelectedPoolPlayer] = useState(null);
   const [recommendation, setRecommendation] = useState(null);
   const [recommendationLoading, setRecommendationLoading] = useState(false);
@@ -65,8 +67,11 @@ export function TacticsPage() {
       } else {
         setLineup(buildDefaultLineup(allPlayers, '4-3-3'));
       }
+      setError('');
+    }).catch((apiError) => {
+      setError(getApiError(apiError, t('tactics.errorMessage')));
     }).finally(() => setLoading(false));
-  }, [teamId]);
+  }, [teamId, t]);
 
   const slots = formationSlots[formation];
   const playerById = useMemo(() => new Map(players.map((player) => [player._id, player])), [players]);
@@ -139,17 +144,36 @@ export function TacticsPage() {
   };
 
   const save = async () => {
-    await api.put('/tactics', { teamId, formation, lineup, sliders });
-    setSaved(t('app.saved'));
+    setSaved('');
+    setSaveFailed(false);
+    try {
+      await api.put('/tactics', { teamId, formation, lineup, sliders });
+      setSaved(t('app.saved'));
+    } catch (apiError) {
+      setSaveFailed(true);
+      setSaved(getApiError(apiError, t('tactics.saveError')));
+    }
   };
 
   if (!teamId) return <PageHeader title={t('tactics.title')} subtitle={t('dashboard.chooseTeam')} />;
   if (loading) return <LoadingState />;
 
+  if (error) {
+    return (
+      <section>
+        <PageHeader title={t('tactics.title')} subtitle={t('tactics.subtitle')} />
+        <div className="dashboard-error">
+          <strong>{t('tactics.errorTitle')}</strong>
+          <p>{error}</p>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section>
       <PageHeader title={t('tactics.title')} subtitle={t('tactics.subtitle')} action={<button className="primary-button" type="button" onClick={save}>{t('app.save')}</button>} />
-      {saved ? <div className="alert">{saved}</div> : null}
+      {saved ? <div className={`alert ${saveFailed ? 'alert--danger' : ''}`}>{saved}</div> : null}
       <div className="tactics-layout">
         <section className="panel">
           <div className="panel__head">
@@ -189,7 +213,7 @@ export function TacticsPage() {
           <div className="panel__head"><h2>{t('tactics.bench')}</h2></div>
           {selectedPoolPlayer ? <div className="pool-selected">{playerById.get(selectedPoolPlayer)?.fullName}</div> : null}
           <div className="drag-list">
-            {availablePlayers.map((player) => (
+            {availablePlayers.length ? availablePlayers.map((player) => (
               <div
                 className={`drag-player ${selectedPoolPlayer === player._id ? 'drag-player--selected' : ''}`}
                 key={player._id}
@@ -204,9 +228,9 @@ export function TacticsPage() {
               >
                 <GripVertical size={16} />
                 <strong>{player.fullName}</strong>
-                <span>{t(`positions.${player.primaryPosition}`)} · {player.overall}</span>
+                <span>{t(`positions.${player.primaryPosition}`)} / {player.overall}</span>
               </div>
-            ))}
+            )) : <div className="dashboard-empty">{players.length ? t('tactics.noBenchPlayers') : t('tactics.noPlayers')}</div>}
           </div>
         </section>
         <section className="panel sliders-panel">
@@ -256,7 +280,7 @@ export function TacticsPage() {
                   <div className="recommendation-item" key={`${item.slot}-${item.order}`}>
                     <div>
                       <strong>{item.player.fullName}</strong>
-                      <span>{t(`positions.${item.slot}`)} · {t('tactics.score')} {item.score}</span>
+                      <span>{t(`positions.${item.slot}`)} / {t('tactics.score')} {item.score}</span>
                     </div>
                     <div className="reason-cloud">
                       {item.reasons.map((reason) => <span key={`${item.player._id}-${item.slot}-${reason.key}`}>{renderReason(reason)}</span>)}
@@ -273,7 +297,7 @@ export function TacticsPage() {
                   <div className="recommendation-item" key={item.player._id}>
                     <div>
                       <strong>{item.player.fullName}</strong>
-                      <span>{t(`positions.${item.player.primaryPosition}`)} · {item.player.overall}</span>
+                      <span>{t(`positions.${item.player.primaryPosition}`)} / {item.player.overall}</span>
                     </div>
                     <div className="reason-cloud">
                       <span>{t(`tactics.leftOutReasons.${item.reason}`)}</span>

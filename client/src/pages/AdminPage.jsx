@@ -17,6 +17,8 @@ export function AdminPage() {
   const [bracket, setBracket] = useState(null);
   const [group, setGroup] = useState('A');
   const [message, setMessage] = useState('');
+  const [messageFailed, setMessageFailed] = useState(false);
+  const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
   const [busyMatch, setBusyMatch] = useState('');
 
@@ -26,15 +28,17 @@ export function AdminPage() {
   ]).then(([qualityResponse, bracketResponse]) => {
     setQuality(qualityResponse.data);
     setBracket(bracketResponse.data);
+    setError('');
   });
 
   useEffect(() => {
-    if (user?.role === 'admin') load().catch(() => {});
-  }, [user]);
+    if (user?.role === 'admin') load().catch((apiError) => setError(getApiError(apiError, t('admin.errorMessage'))));
+  }, [user, t]);
 
   const run = async (action) => {
     setBusy(true);
     setMessage('');
+    setMessageFailed(false);
     try {
       if (action === 'seed') await api.post('/admin/seed');
       if (action === 'group') await api.post(`/admin/groups/${group}/simulate`);
@@ -42,6 +46,7 @@ export function AdminPage() {
       await load();
       setMessage(t('app.saved'));
     } catch (error) {
+      setMessageFailed(true);
       setMessage(getApiError(error, t('app.error')));
     } finally {
       setBusy(false);
@@ -51,11 +56,13 @@ export function AdminPage() {
   const simulateBracketMatch = async (match) => {
     setBusyMatch(match._id);
     setMessage('');
+    setMessageFailed(false);
     try {
       await api.post(`/admin/matches/${match._id}/simulate`);
       await load();
       setMessage(t('app.saved'));
     } catch (error) {
+      setMessageFailed(true);
       setMessage(getApiError(error, t('app.error')));
     } finally {
       setBusyMatch('');
@@ -66,12 +73,24 @@ export function AdminPage() {
     return <PageHeader title={t('admin.title')} subtitle={t('admin.adminOnly')} />;
   }
 
+  if (error) {
+    return (
+      <section>
+        <PageHeader title={t('admin.title')} subtitle={t('admin.subtitle')} />
+        <div className="dashboard-error">
+          <strong>{t('admin.errorTitle')}</strong>
+          <p>{error}</p>
+        </div>
+      </section>
+    );
+  }
+
   if (!quality || !bracket) return <LoadingState />;
 
   return (
     <section>
       <PageHeader title={t('admin.title')} subtitle={t('admin.subtitle')} />
-      {message ? <div className="alert">{message}</div> : null}
+      {message ? <div className={`alert ${messageFailed ? 'alert--danger' : ''}`}>{message}</div> : null}
       <div className="admin-actions">
         <button className="ghost-button" type="button" onClick={() => run('seed')} disabled={busy}><RefreshCw size={16} />{t('admin.reseed')}</button>
         <label>
@@ -84,14 +103,14 @@ export function AdminPage() {
         <button className="primary-button" type="button" onClick={() => run('all')} disabled={busy}><Play size={16} />{t('admin.simulateAll')}</button>
       </div>
       <div className="stat-grid">
-        {Object.entries(quality.totals).map(([key, value]) => <StatCard key={key} label={key} value={value} />)}
+        {Object.entries(quality.totals).map(([key, value]) => <StatCard key={key} label={t(`admin.qualityLabels.${key}`)} value={value} />)}
       </div>
       <section className="panel">
         <div className="panel__head"><h2>{t('admin.missing')}</h2></div>
         <div className="quality-grid">
           {Object.entries(quality.missing).map(([key, value]) => (
             <div key={key}>
-              <span>{key}</span>
+              <span>{t(`admin.qualityLabels.${key}`)}</span>
               <strong>{value}</strong>
             </div>
           ))}

@@ -49,13 +49,13 @@ export function TournamentPage() {
         <section className="panel">
           <div className="panel__head"><h2>{t('tournament.upcoming')}</h2></div>
           <div className="stack">
-            {data.upcomingMatches.map((match) => <MatchCard key={match._id} match={match} />)}
+            {data.upcomingMatches.length ? data.upcomingMatches.map((match) => <MatchCard key={match._id} match={match} />) : <div className="dashboard-empty">{t('tournament.noUpcoming')}</div>}
           </div>
         </section>
         <section className="panel">
           <div className="panel__head"><h2>{t('tournament.completed')}</h2></div>
           <div className="stack">
-            {data.completedMatches.length ? data.completedMatches.map((match) => <MatchCard key={match._id} match={match} />) : <p>{t('app.empty')}</p>}
+            {data.completedMatches.length ? data.completedMatches.map((match) => <MatchCard key={match._id} match={match} />) : <div className="dashboard-empty">{t('tournament.noCompleted')}</div>}
           </div>
         </section>
         <section className="panel">
@@ -81,7 +81,7 @@ export function TournamentPage() {
         <section className="panel">
           <div className="panel__head"><h2>{t('tournament.injuries')}</h2></div>
           <div className="stack">
-            {data.injuredPlayers.length ? data.injuredPlayers.map((player) => <PlayerRow key={player._id} player={player} />) : <p>{t('app.empty')}</p>}
+            {data.injuredPlayers.length ? data.injuredPlayers.map((player) => <PlayerRow key={player._id} player={player} />) : <div className="dashboard-empty">{t('tournament.noInjuries')}</div>}
           </div>
         </section>
       </div>

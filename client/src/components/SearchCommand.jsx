@@ -39,7 +39,7 @@ export function SearchCommand() {
           ))}
           {visibleResults.players.map((player) => (
             <Link key={player._id} to={`/players/${player._id}`} onClick={() => setQuery('')}>
-              <Flag team={player.country} /> {player.fullName} · {teamName(player.country, language)} · {t(`positions.${player.primaryPosition}`)}
+              <Flag team={player.country} /> {player.fullName} / {teamName(player.country, language)} / {t(`positions.${player.primaryPosition}`)}
             </Link>
           ))}
           {visibleResults.matches.map((match) => (

@@ -37,6 +37,8 @@ export function SquadPage() {
   const [selected, setSelected] = useState(new Set());
   const [loading, setLoading] = useState(Boolean(user?.selectedTeam));
   const [message, setMessage] = useState('');
+  const [messageFailed, setMessageFailed] = useState(false);
+  const [error, setError] = useState('');
   const teamId = user?.selectedTeam?._id;
 
   useEffect(() => {
@@ -48,15 +50,18 @@ export function SquadPage() {
           .filter((player) => player.nationalTeamStatus === 'final')
           .map((player) => player._id);
         setSelected(new Set(initial.length ? initial : data.players.slice(0, 26).map((player) => player._id)));
+        setError('');
       })
+      .catch((apiError) => setError(getApiError(apiError, t('squad.errorMessage'))))
       .finally(() => setLoading(false));
-  }, [teamId]);
+  }, [teamId, t]);
 
   const selectedPlayers = useMemo(() => players.filter((player) => selected.has(player._id)), [players, selected]);
   const evaluation = useMemo(() => evaluate(selectedPlayers), [selectedPlayers]);
 
   const toggle = (player) => {
     setMessage('');
+    setMessageFailed(false);
     setSelected((current) => {
       const next = new Set(current);
       if (next.has(player._id)) next.delete(player._id);
@@ -67,16 +72,30 @@ export function SquadPage() {
 
   const save = async () => {
     setMessage('');
+    setMessageFailed(false);
     try {
       await api.put('/players/squad/final', { teamId, playerIds: [...selected] });
       setMessage(t('app.saved'));
     } catch (error) {
+      setMessageFailed(true);
       setMessage(getApiError(error, t('app.error')));
     }
   };
 
   if (!teamId) return <PageHeader title={t('squad.title')} subtitle={t('dashboard.chooseTeam')} />;
   if (loading) return <LoadingState />;
+
+  if (error) {
+    return (
+      <section>
+        <PageHeader title={t('squad.title')} subtitle={t('squad.subtitle')} />
+        <div className="dashboard-error">
+          <strong>{t('squad.errorTitle')}</strong>
+          <p>{error}</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section>
@@ -87,7 +106,7 @@ export function SquadPage() {
         <StatCard label={t('squad.defenders')} value={evaluation.counts.defenders} />
         <StatCard label={t('squad.wide')} value={evaluation.counts.wide} />
       </div>
-      {message ? <div className="alert">{message}</div> : null}
+      {message ? <div className={`alert ${messageFailed ? 'alert--danger' : ''}`}>{message}</div> : null}
       {[...evaluation.errors, ...evaluation.warnings].length ? (
         <div className="alert-stack">
           {evaluation.errors.map((key) => <div className="alert alert--danger" key={key}>{t(key)}</div>)}
@@ -96,9 +115,9 @@ export function SquadPage() {
       ) : null}
       <section className="panel">
         <div className="player-table">
-          {players.map((player) => (
+          {players.length ? players.map((player) => (
             <PlayerRow key={player._id} player={player} selectable checked={selected.has(player._id)} onToggle={toggle} />
-          ))}
+          )) : <div className="dashboard-empty">{t('squad.noPlayers')}</div>}
         </div>
       </section>
     </section>
