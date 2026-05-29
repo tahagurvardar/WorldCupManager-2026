@@ -142,3 +142,9 @@ Team/group seed metadata uses source fields (`sourceName`, `sourceUrl`, `verific
 | Database | MongoDB Atlas |
 
 See [DEPLOYMENT.md](./DEPLOYMENT.md) for Vercel frontend, Render backend, MongoDB Atlas setup, environment variables, and deployment checks.
+
+## License
+
+This project is proprietary. All rights reserved. The source code is publicly available for portfolio and review purposes only. Commercial use, redistribution, copying, modification, or deployment without written permission is not allowed.
+
+See [LICENSE](./LICENSE) for full terms. Copyright &copy; 2026 Taha Gürvardar.
