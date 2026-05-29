@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useMemo, useState } from 'react';
-import { BarChart3, ClipboardList, Mic2, Play, ShieldCheck, Users } from 'lucide-react';
+import { BarChart3, ClipboardList, Mic2, Play, ShieldCheck, Trophy, Users } from 'lucide-react';
 import { PageHeader } from '../components/PageHeader.jsx';
 import { Flag } from '../components/Flag.jsx';
 import { LoadingState } from '../components/LoadingState.jsx';
@@ -180,6 +180,7 @@ export function DashboardPage() {
           <QuickAction icon={BarChart3} label={t('dashboard.actions.opponentAnalysis')} to="/opponent-analysis" disabled={!data.fixtures.upcomingMatch} />
           <QuickAction icon={Play} label={t('dashboard.actions.simulateMatch')} onClick={simulateNextMatch} disabled={!data.fixtures.upcomingMatch || isSimulating} />
           <QuickAction icon={Mic2} label={t('dashboard.actions.pressConference')} to="/press-conference" disabled={!data.fixtures.upcomingMatch} />
+          <QuickAction icon={Trophy} label={t('dashboard.actions.tournamentJourney')} to="/journey" />
         </div>
       </section>
 

@@ -25,6 +25,7 @@ const navItems = [
   ['teams', '/teams', Shield],
   ['squad', '/squad', Users],
   ['tactics', '/tactics', Activity],
+  ['journey', '/journey', Trophy],
   ['tournament', '/tournament', Table2],
   ['knockout', '/knockout', Swords],
   ['stats', '/stats', BarChart3],

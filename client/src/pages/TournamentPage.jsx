@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { PageHeader } from '../components/PageHeader.jsx';
 import { LoadingState } from '../components/LoadingState.jsx';
 import { GroupTable } from '../components/GroupTable.jsx';
@@ -37,7 +38,7 @@ export function TournamentPage() {
 
   return (
     <section>
-      <PageHeader title={t('tournament.title')} subtitle={t('tournament.subtitle')} />
+      <PageHeader title={t('tournament.title')} subtitle={t('tournament.subtitle')} action={<Link className="ghost-button" to="/journey">{t('journey.title')}</Link>} />
       <div className="dashboard-grid dashboard-grid--wide">
         <section className="section-block panel--span">
           <div className="panel__head"><h2>{t('tournament.standings')}</h2></div>

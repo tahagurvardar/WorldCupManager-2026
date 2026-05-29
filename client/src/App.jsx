@@ -10,6 +10,7 @@ const TeamSelectionPage = lazy(() => import('./pages/TeamSelectionPage.jsx').the
 const SquadPage = lazy(() => import('./pages/SquadPage.jsx').then((module) => ({ default: module.SquadPage })));
 const TacticsPage = lazy(() => import('./pages/TacticsPage.jsx').then((module) => ({ default: module.TacticsPage })));
 const TournamentPage = lazy(() => import('./pages/TournamentPage.jsx').then((module) => ({ default: module.TournamentPage })));
+const TournamentJourneyPage = lazy(() => import('./pages/TournamentJourneyPage.jsx').then((module) => ({ default: module.TournamentJourneyPage })));
 const MatchDetailPage = lazy(() => import('./pages/MatchDetailPage.jsx').then((module) => ({ default: module.MatchDetailPage })));
 const OpponentAnalysisPage = lazy(() => import('./pages/OpponentAnalysisPage.jsx').then((module) => ({ default: module.OpponentAnalysisPage })));
 const PressConferencePage = lazy(() => import('./pages/PressConferencePage.jsx').then((module) => ({ default: module.PressConferencePage })));
@@ -38,6 +39,7 @@ function App() {
           <Route path="/squad" element={<SquadPage />} />
           <Route path="/tactics" element={<TacticsPage />} />
           <Route path="/tournament" element={<TournamentPage />} />
+          <Route path="/journey" element={<TournamentJourneyPage />} />
           <Route path="/knockout" element={<KnockoutPage />} />
           <Route path="/opponent-analysis" element={<OpponentAnalysisPage />} />
           <Route path="/press-conference" element={<PressConferencePage />} />

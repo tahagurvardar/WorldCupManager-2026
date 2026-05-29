@@ -28,7 +28,8 @@
     "knockout": "Knockout",
     "stats": "Stats",
     "admin": "Admin Panel",
-    "logout": "Log out"
+    "logout": "Log out",
+    "journey": "Journey"
   },
   "auth": {
     "title": "Enter the manager center",
@@ -91,7 +92,8 @@
       "viewSquad": "View squad",
       "opponentAnalysis": "Opponent analysis",
       "simulateMatch": "Simulate match",
-      "pressConference": "Press conference"
+      "pressConference": "Press conference",
+      "tournamentJourney": "Tournament journey"
     }
   },
   "teams": {
@@ -480,5 +482,102 @@
     "tactical_analysis": "Tactical analysis",
     "player_spotlight": "Player spotlight",
     "board_reaction": "Board reaction"
+  },
+  "journey": {
+    "title": "Tournament journey",
+    "subtitle": "Track the selected team?s World Cup path, manager grade and media reaction.",
+    "errorTitle": "Tournament journey could not load",
+    "errorMessage": "Could not load tournament journey.",
+    "currentStatus": "Current status",
+    "managerGrade": "Manager grade",
+    "expectation": "Board expectation",
+    "journeyTimeline": "Journey timeline",
+    "resultsSummary": "Results summary",
+    "keyPlayers": "Key players",
+    "managerPerformance": "Manager performance report",
+    "reactionSummary": "Board, fan and media reaction",
+    "mostImportantMatch": "Most important match",
+    "noMatches": "No tournament matches found for this team yet.",
+    "noImportantMatch": "No decisive match has formed yet.",
+    "noPlayerData": "No player performance data yet.",
+    "noneYet": "None yet",
+    "played": "Played",
+    "wins": "Wins",
+    "draws": "Draws",
+    "losses": "Losses",
+    "goalsForAgainst": "Goals for / against",
+    "cleanSheets": "Clean sheets",
+    "biggestWin": "Biggest win",
+    "worstDefeat": "Worst defeat",
+    "bestRatedPlayer": "Best rated player",
+    "topScorer": "Top scorer",
+    "topAssister": "Top assister",
+    "groupPosition": "Group position",
+    "championTitle": "World champions",
+    "championBody": "{{team}} completed the World Cup journey and lifted the trophy. The manager report marks this as a historic campaign.",
+    "eliminationTitle": "Elimination report",
+    "statusLabels": {
+      "group_stage": "Group stage in progress",
+      "round_of_32": "Round of 32",
+      "round_of_16": "Round of 16",
+      "quarter_final": "Quarter-final",
+      "semi_final": "Semi-final",
+      "third_place": "Third-place match",
+      "final": "Final",
+      "champion": "World Cup champion",
+      "eliminated": "Eliminated"
+    },
+    "expectations": {
+      "winOrFinal": "Win it or reach the final",
+      "semiFinal": "Reach the semi-final",
+      "quarterFinal": "Reach the quarter-final",
+      "knockoutRun": "Build a knockout run",
+      "groupCompete": "Compete and escape the group"
+    },
+    "results": {
+      "W": "Win",
+      "D": "Draw",
+      "L": "Loss",
+      "scheduled": "Scheduled"
+    },
+    "importantReasons": {
+      "championFinal": "Title-deciding final",
+      "elimination": "Elimination match",
+      "knockoutProgress": "Knockout progress marker",
+      "biggestWin": "Biggest win of the run",
+      "worstDefeat": "Worst defeat of the run",
+      "latestResult": "Latest completed match",
+      "nextFixture": "Next key fixture"
+    },
+    "eliminationReasons": {
+      "groupElimination": "The team finished the group stage in position {{position}} with {{points}} points and missed the qualifying cut.",
+      "knockoutElimination": "The knockout defeat ended the run and shifted the review toward selection, risk control and match management."
+    },
+    "breakdown": {
+      "matchResults": "Match results",
+      "groupPerformance": "Group performance",
+      "knockoutProgress": "Knockout progress",
+      "mediaControl": "Media control"
+    },
+    "reactions": {
+      "championBoard": "The board treats the campaign as a landmark achievement.",
+      "championFans": "Supporters are celebrating a once-in-a-generation tournament.",
+      "championMedia": "Media coverage is overwhelmingly celebratory.",
+      "eliminationConcern": "The board wants a detailed review of the tournament exit.",
+      "eliminationFrustration": "Supporters are frustrated by how the journey ended.",
+      "eliminationScrutiny": "Media pressure turns sharply toward accountability.",
+      "boardExcellent": "The board is highly satisfied with the manager?s work.",
+      "fansInspired": "Fans feel the team is playing above expectation.",
+      "mediaPraise": "The media is framing the campaign positively.",
+      "boardStable": "The board remains broadly supportive.",
+      "fansCautious": "Fans are encouraged but still cautious.",
+      "mediaBalanced": "Media coverage is balanced and analytical.",
+      "boardUneasy": "The board is uneasy and wants clearer progress.",
+      "fansRestless": "Supporters are becoming restless.",
+      "mediaQuestions": "The media is asking sharper tactical questions.",
+      "boardCritical": "The board is openly concerned by the results.",
+      "fansAngry": "Fan confidence has dropped significantly.",
+      "mediaPressure": "Media pressure is intense."
+    }
   }
 }

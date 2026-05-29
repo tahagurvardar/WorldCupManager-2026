@@ -1675,6 +1675,345 @@ select:focus {
   color: var(--danger);
 }
 
+.journey-page {
+  display: grid;
+  gap: 18px;
+}
+
+.journey-page .page-header {
+  margin-bottom: 0;
+}
+
+.journey-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(150px, auto) minmax(240px, 0.45fr);
+  gap: 18px;
+  align-items: center;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent-2) 24%, transparent), transparent 46%),
+    linear-gradient(180deg, color-mix(in srgb, var(--surface) 96%, white 4%), var(--surface));
+}
+
+.journey-hero--champion {
+  border-color: color-mix(in srgb, var(--amber) 64%, var(--border));
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--amber) 22%, transparent), transparent 40%),
+    linear-gradient(180deg, color-mix(in srgb, var(--surface) 96%, white 4%), var(--surface));
+}
+
+.journey-hero__identity {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.journey-hero__identity h2 {
+  margin-top: 4px;
+  font-size: 28px;
+}
+
+.journey-hero__identity span,
+.journey-hero__identity p,
+.journey-grade-card span,
+.journey-grade-card small,
+.journey-status-card span,
+.journey-status-card small {
+  color: var(--muted);
+}
+
+.journey-grade-card,
+.journey-status-card,
+.journey-summary-card,
+.journey-player-card,
+.journey-reaction-card,
+.journey-important-card {
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.journey-grade-card,
+.journey-status-card {
+  display: grid;
+  gap: 6px;
+  padding: 14px;
+}
+
+.journey-grade-card {
+  place-items: center;
+  text-align: center;
+}
+
+.journey-grade-card strong {
+  color: var(--accent);
+  font-size: 48px;
+  line-height: 1;
+}
+
+.journey-status-card strong {
+  color: var(--text);
+  font-size: 20px;
+}
+
+.journey-celebration,
+.journey-elimination {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.journey-celebration {
+  border-color: color-mix(in srgb, var(--amber) 64%, var(--border));
+}
+
+.journey-celebration svg {
+  color: var(--amber);
+}
+
+.journey-elimination {
+  border-color: color-mix(in srgb, var(--danger) 58%, var(--border));
+}
+
+.journey-elimination svg {
+  color: var(--danger);
+}
+
+.journey-celebration p,
+.journey-elimination p {
+  margin-top: 6px;
+  color: var(--muted);
+}
+
+.journey-summary-grid,
+.journey-grid,
+.journey-player-grid,
+.journey-reaction-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.journey-summary-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.journey-summary-card {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+}
+
+.journey-summary-card span,
+.journey-player-card span,
+.journey-player-card small,
+.journey-important-card span,
+.journey-important-card p,
+.journey-breakdown-row span,
+.journey-reaction-card span {
+  color: var(--muted);
+}
+
+.journey-summary-card strong {
+  color: var(--accent);
+  font-size: 28px;
+  line-height: 1;
+}
+
+.journey-summary-card--amber strong {
+  color: var(--amber);
+}
+
+.journey-summary-card--danger strong {
+  color: var(--danger);
+}
+
+.journey-grid {
+  grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr);
+}
+
+.journey-grid--top {
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
+}
+
+.journey-timeline {
+  display: grid;
+  gap: 10px;
+}
+
+.journey-timeline-item {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.8fr) minmax(0, 1fr) minmax(150px, 0.8fr) auto;
+  gap: 12px;
+  align-items: center;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--muted);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.journey-timeline-item--green {
+  border-left-color: var(--accent);
+}
+
+.journey-timeline-item--amber {
+  border-left-color: var(--amber);
+}
+
+.journey-timeline-item--danger {
+  border-left-color: var(--danger);
+}
+
+.journey-timeline-item span,
+.journey-timeline-item strong,
+.journey-timeline-item b,
+.journey-timeline-item em {
+  display: block;
+}
+
+.journey-timeline-item span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.journey-timeline-item strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.journey-timeline-item b {
+  color: var(--accent);
+  font-size: 22px;
+}
+
+.journey-timeline-item em {
+  padding: 6px 9px;
+  border-radius: 999px;
+  color: var(--text);
+  background: var(--surface-3);
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.journey-important-card {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+}
+
+.journey-important-card strong {
+  font-size: 22px;
+}
+
+.journey-player-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.journey-player-card {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+}
+
+.journey-player-card strong {
+  color: var(--text);
+}
+
+.journey-player-card b {
+  color: var(--accent);
+  font-size: 28px;
+}
+
+.journey-performance {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+}
+
+.journey-performance__grade {
+  display: grid;
+  place-items: center;
+  gap: 6px;
+  min-height: 170px;
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--border));
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface-2));
+  text-align: center;
+}
+
+.journey-performance__grade span,
+.journey-performance__grade small {
+  color: var(--muted);
+}
+
+.journey-performance__grade strong {
+  color: var(--accent);
+  font-size: 58px;
+  line-height: 1;
+}
+
+.journey-breakdown,
+.journey-breakdown-row {
+  display: grid;
+  gap: 10px;
+}
+
+.journey-breakdown-row > div:first-child,
+.journey-reaction-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.journey-meter {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface-3) 70%, black 12%);
+}
+
+.journey-meter span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+
+.journey-reaction-grid {
+  grid-template-columns: 1fr;
+}
+
+.journey-reaction-card {
+  padding: 12px;
+}
+
+.journey-reaction-card svg {
+  color: var(--accent);
+  flex: 0 0 auto;
+}
+
+.journey-reaction-card div {
+  min-width: 0;
+}
+
+.journey-reaction-card strong {
+  display: block;
+  margin-top: 3px;
+}
+
+.journey-reaction-card b {
+  color: var(--accent);
+  white-space: nowrap;
+}
+
 .opponent-analysis {
   display: grid;
   gap: 18px;
@@ -2417,8 +2756,17 @@ select:focus {
   }
 
   .dashboard-hero,
-  .manager-dashboard-grid {
+  .manager-dashboard-grid,
+  .journey-hero,
+  .journey-grid,
+  .journey-grid--top,
+  .journey-player-grid,
+  .journey-performance {
     grid-template-columns: 1fr;
+  }
+
+  .journey-summary-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .dashboard-quick-actions {
@@ -2484,7 +2832,9 @@ select:focus {
   .page-header,
   .match-card__teams,
   .match-card__meta,
-  .admin-actions {
+  .admin-actions,
+  .journey-celebration,
+  .journey-elimination {
     align-items: stretch;
     flex-direction: column;
   }
@@ -2492,6 +2842,7 @@ select:focus {
   .stat-grid,
   .dashboard-grid,
   .dashboard-grid--wide,
+  .journey-summary-grid,
   .group-grid,
   .standings-grid,
   .bracket-grid,
@@ -2520,9 +2871,14 @@ select:focus {
     grid-template-columns: 1fr;
   }
 
-  .dashboard-hero__identity {
+  .dashboard-hero__identity,
+  .journey-hero__identity {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .journey-timeline-item {
+    grid-template-columns: 1fr;
   }
 
   .dashboard-quick-actions {

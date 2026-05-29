@@ -13,6 +13,7 @@ import { simulateMatchById } from '../services/matchSimulationService.js';
 import { buildRecommendedXi } from '../services/recommendedXiService.js';
 import { buildOpponentAnalysis } from '../services/opponentAnalysisService.js';
 import { addEffects, applyAnswerEffects, buildPressConferenceQuestions, derivePressMetrics } from '../services/pressConferenceService.js';
+import { buildTournamentJourney } from '../services/tournamentJourneyService.js';
 
 export const selectTeamSchema = z.object({
   body: z.object({
@@ -81,6 +82,22 @@ export const getDashboard = asyncHandler(async (req, res) => {
     groupTable,
     news,
     pressure: Math.min(100, 35 + (100 - team.morale) * 0.35 + (team.worldRanking <= 20 ? 22 : 10)),
+  });
+});
+
+export const getTournamentJourney = asyncHandler(async (req, res) => {
+  if (!req.user.selectedTeam) {
+    throw new HttpError(400, 'Manager has not selected a national team');
+  }
+
+  const journey = await buildTournamentJourney(req.user);
+  if (!journey) {
+    throw new HttpError(404, 'Selected team was not found');
+  }
+
+  res.json({
+    success: true,
+    journey,
   });
 });
 

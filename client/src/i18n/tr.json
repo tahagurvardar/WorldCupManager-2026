@@ -28,7 +28,8 @@
     "knockout": "Eleme Ağacı",
     "stats": "İstatistikler",
     "admin": "Admin Paneli",
-    "logout": "Çıkış"
+    "logout": "Çıkış",
+    "journey": "Yolculuk"
   },
   "auth": {
     "title": "Teknik direktör merkezine giriş",
@@ -91,7 +92,8 @@
       "viewSquad": "Kadroyu gör",
       "opponentAnalysis": "Rakip analizi",
       "simulateMatch": "Maçı simüle et",
-      "pressConference": "Basın toplantısı"
+      "pressConference": "Basın toplantısı",
+      "tournamentJourney": "Turnuva yolculuğu"
     }
   },
   "teams": {
@@ -480,5 +482,102 @@
     "tactical_analysis": "Taktik analiz",
     "player_spotlight": "Oyuncu odağı",
     "board_reaction": "Yönetim tepkisi"
+  },
+  "journey": {
+    "title": "Turnuva yolculuğu",
+    "subtitle": "Seçili takımın Dünya Kupası yolunu, teknik direktör notunu ve medya tepkisini takip et.",
+    "errorTitle": "Turnuva yolculuğu yüklenemedi",
+    "errorMessage": "Turnuva yolculuğu yüklenemedi.",
+    "currentStatus": "Güncel durum",
+    "managerGrade": "Teknik direktör notu",
+    "expectation": "Yönetim beklentisi",
+    "journeyTimeline": "Yolculuk akışı",
+    "resultsSummary": "Sonuç özeti",
+    "keyPlayers": "Kilit oyuncular",
+    "managerPerformance": "Teknik direktör performans raporu",
+    "reactionSummary": "Yönetim, taraftar ve medya tepkisi",
+    "mostImportantMatch": "En önemli maç",
+    "noMatches": "Bu takım için henüz turnuva maçı bulunmuyor.",
+    "noImportantMatch": "Henüz belirleyici maç oluşmadı.",
+    "noPlayerData": "Oyuncu performans verisi henüz yok.",
+    "noneYet": "Henüz yok",
+    "played": "Oynanan",
+    "wins": "Galibiyet",
+    "draws": "Beraberlik",
+    "losses": "Mağlubiyet",
+    "goalsForAgainst": "Atılan / yenilen gol",
+    "cleanSheets": "Gol yememe",
+    "biggestWin": "En farklı galibiyet",
+    "worstDefeat": "En ağır yenilgi",
+    "bestRatedPlayer": "En yüksek rating",
+    "topScorer": "Gol kralı",
+    "topAssister": "Asist lideri",
+    "groupPosition": "Grup sırası",
+    "championTitle": "Dünya şampiyonu",
+    "championBody": "{{team}} Dünya Kupası yolculuğunu tamamladı ve kupayı kaldırdı. Teknik direktör raporu bu turnuvayı tarihi bir başarı olarak işaretliyor.",
+    "eliminationTitle": "Eliminasyon raporu",
+    "statusLabels": {
+      "group_stage": "Grup aşaması devam ediyor",
+      "round_of_32": "Son 32",
+      "round_of_16": "Son 16",
+      "quarter_final": "Çeyrek final",
+      "semi_final": "Yarı final",
+      "third_place": "Üçüncülük maçı",
+      "final": "Final",
+      "champion": "Dünya Kupası şampiyonu",
+      "eliminated": "Elendi"
+    },
+    "expectations": {
+      "winOrFinal": "Kupayı kazanmak ya da finale çıkmak",
+      "semiFinal": "Yarı finale çıkmak",
+      "quarterFinal": "Çeyrek finale çıkmak",
+      "knockoutRun": "Eleme turu yürüyüşü yapmak",
+      "groupCompete": "Grupta rekabet edip çıkmak"
+    },
+    "results": {
+      "W": "Galibiyet",
+      "D": "Beraberlik",
+      "L": "Mağlubiyet",
+      "scheduled": "Planlandı"
+    },
+    "importantReasons": {
+      "championFinal": "Kupayı belirleyen final",
+      "elimination": "Eliminasyon maçı",
+      "knockoutProgress": "Eleme turu eşiği",
+      "biggestWin": "Turnuvadaki en farklı galibiyet",
+      "worstDefeat": "Turnuvadaki en ağır yenilgi",
+      "latestResult": "Son tamamlanan maç",
+      "nextFixture": "Sıradaki kilit maç"
+    },
+    "eliminationReasons": {
+      "groupElimination": "Takım grup aşamasını {{position}}. sırada ve {{points}} puanla bitirdi; yükselme çizgisinin dışında kaldı.",
+      "knockoutElimination": "Eleme turundaki yenilgi yolculuğu bitirdi ve inceleme odağını seçimler, risk kontrolü ve maç yönetimine çevirdi."
+    },
+    "breakdown": {
+      "matchResults": "Maç sonuçları",
+      "groupPerformance": "Grup performansı",
+      "knockoutProgress": "Eleme ilerleyişi",
+      "mediaControl": "Medya kontrolü"
+    },
+    "reactions": {
+      "championBoard": "Yönetim turnuvayı tarihi bir başarı olarak görüyor.",
+      "championFans": "Taraftarlar kuşakta bir gelecek başarıyı kutluyor.",
+      "championMedia": "Medya dili büyük ölçüde kutlama havasında.",
+      "eliminationConcern": "Yönetim turnuva vedası için detaylı rapor istiyor.",
+      "eliminationFrustration": "Taraftarlar yolculuğun bitiş şeklinden rahatsız.",
+      "eliminationScrutiny": "Medya baskısı sert biçimde hesap sorma tonuna dönüyor.",
+      "boardExcellent": "Yönetim teknik direktörün işinden çok memnun.",
+      "fansInspired": "Taraftarlar takımın beklentinin üstüne çıktığını düşünüyor.",
+      "mediaPraise": "Medya turnuvayı olumlu çerçeveliyor.",
+      "boardStable": "Yönetim genel olarak desteğini koruyor.",
+      "fansCautious": "Taraftarlar umutlu ama temkinli.",
+      "mediaBalanced": "Medya dili dengeli ve analitik.",
+      "boardUneasy": "Yönetim daha net ilerleme görmek istiyor.",
+      "fansRestless": "Taraftarlar huzursuzlanmaya başladı.",
+      "mediaQuestions": "Medya daha keskin taktik sorular soruyor.",
+      "boardCritical": "Yönetim sonuçlardan açıkça endişeli.",
+      "fansAngry": "Taraftar güveni belirgin şekilde düştü.",
+      "mediaPressure": "Medya baskısı yoğun."
+    }
   }
 }
