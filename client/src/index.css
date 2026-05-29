@@ -371,9 +371,11 @@ select:focus {
 
 .flag-img {
   display: inline-block;
+  position: relative;
   width: 28px;
   height: 20px;
   object-fit: cover;
+  overflow: hidden;
   border-radius: 3px;
   box-shadow: 0 0 0 1px color-mix(in srgb, var(--border) 80%, transparent);
   flex: 0 0 auto;
@@ -391,12 +393,59 @@ select:focus {
   height: 16px;
 }
 
+.flag-img--fallback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--surface-2) 88%, var(--accent) 12%);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.flag-img--lg.flag-img--fallback {
+  font-size: 28px;
+}
+
+.flag-img--sm.flag-img--fallback {
+  font-size: 11px;
+}
+
+.flag-img__fallback {
+  position: relative;
+  z-index: 1;
+}
+
+.flag-img__image {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 160ms ease;
+}
+
+.flag-img--loaded .flag-img__image {
+  opacity: 1;
+}
+
+.flag-img--loaded .flag-img__fallback {
+  opacity: 0;
+}
+
 .team-card span,
 .player-row span,
 .match-card__meta,
 .mini-metrics dt,
 .rating-list small {
   color: var(--muted);
+}
+
+.flag-img.flag-img--fallback {
+  color: var(--accent);
 }
 
 .team-card__identity strong,
@@ -606,6 +655,43 @@ select:focus {
   color: var(--muted);
   font-size: 12px;
   font-weight: 700;
+}
+
+.sortable-cell {
+  padding: 0;
+}
+
+.sort-button {
+  width: 100%;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 800;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sort-button:hover,
+.sort-button:focus-visible,
+.sort-button--active {
+  color: var(--accent);
+}
+
+.sort-button:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  outline-offset: 2px;
+}
+
+.sort-indicator {
+  color: var(--accent);
+  font-size: 13px;
 }
 
 .data-table--compact th,
@@ -2575,6 +2661,10 @@ select:focus {
 
 .stats-table-panel {
   margin-top: 18px;
+}
+
+.stats-table {
+  min-width: 940px;
 }
 
 .stats-table td:first-child {
